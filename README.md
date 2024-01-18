@@ -10,7 +10,8 @@
   Here we'll simulate several types of common webpages with simulated threats. If the user interacts with anything in a risky way, they'll lose health. At the same time, there is some task given to the user to complete for each type of webpage and a timer to complete the task, completing the task resets the timer and loads a new page. If the timer runs out or the user runs out of health the game is over and the user is sent to the **Learn More** page for the threat that lost them the most health
 ![Mock up of a download page with ads and fake download buttons to confuse users.](https://github.com/Stuart-Y/startup/blob/main/Mock-Up.png)
 ### Learn More
-  Here we describe common risks found on webpages at a variety of levels 
+  Here we describe common risks found on webpages at a variety of levels
+![borrowed snippet of wikipedia article on phishing.](https://github.com/Stuart-Y/startup/blob/main/Wikipedia-Phising-snippet.png)
 ## Class Required Elements
 ### Authentication
   Anyone visiting the page can spend some time practicing with the provided scenarios, but to save scores and earn a official-looking certificate, users need to create an account
