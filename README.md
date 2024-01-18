@@ -18,4 +18,4 @@
 ### Database data
   Player scores will be saved here, as well as a collection of mock-up AD images for fake page ads and pop-up ads to be dynamically loaded in
 ### WebSocket data
-  The page will informa all current users if high scores are updated, of if any user has earned a certificate
+  The page will inform all current users if high scores are updated, of if any user has earned a certificate
