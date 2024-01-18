@@ -7,7 +7,7 @@
   Here we'll track recent and high scores and any achievements or certificates users have earned
 ### Mock-Ups
   Here we'll simulate several types of common webpages with simulated threats. If the user interacts with anything in a risky way, they'll lose health. At the same time, there is some task given to the user to complete for each type of webpage and a timer to complete the task, completing the task resets the timer and loads a new page. If the timer runs out or the user runs out of health the game is over and the user is sent to the **Learn More** page for the threat that lost them the most health
-![Mock up of a download page with ads and fake download buttons to confuse users.](https://github.com/Stuart-Y/startup/edit/main/Mock-Up.png)
+![Mock up of a download page with ads and fake download buttons to confuse users.](https://github.com/Stuart-Y/startup/blob/main/Mock-Up.png)
 ### Learn More
   Here we describe common risks found on webpages at a variety of levels 
 ## Class Required Elements
