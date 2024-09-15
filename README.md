@@ -21,3 +21,19 @@ Why?
 ### Internet Proofing
 If certain blacklisted objects are created in the custom object field users are sent to this page explaining why such things are not permittedd on my site
 ![warning page doodle](https://github.com/Stuart-Y/startup/blob/main/I%20Wish%20I%20didn't%20need%20this%20page.jpg)
+
+## Stack Description
+### HTML
+mark up text with exciting formating lines and boxes for basic components
+### CSS
+fonts and some fonts and some dynamic styling
+### Javscript
+Login, calculations for how many things fit, dynamic lists of other users activities and user data
+### React
+Smooth homepage displaying
+### Service
+dad jokes
+### DB/Login
+user credentials and custom object and previous calculations
+### websocket
+broadcast other users exploits
