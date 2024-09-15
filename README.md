@@ -4,20 +4,20 @@
 ## pages
 ###  Homepage
   The basic functionality for filling things with other things will be readily available here.
-  ![Doodle of Home Page Layout](https://github.com/Stuart-Y/startup/blob/main/homepage%20doodle.pdf)
+  ![Doodle of Home Page Layout](https://github.com/Stuart-Y/startup/blob/main/homepage%20doodle_page-0001.jpg)
 
 ### Profile Page
-Here data about peoples use of the site is made visible and interpreted in a fun way.
-![Doodle of a User Page](https://github.com/Stuart-Y/startup/blob/main/User%20Page%20Doodle.pdf)
+Here data about peoples use of the site is made visible and interpreted in a fun way. Also Includes a Dad Joke service for added entertainment value
+![Doodle of a User Page](https://github.com/Stuart-Y/startup/blob/main/User%20Page%20Doodle_page-0001.jpg)
 
 ### Custom Item Page
 Here logged in users can create their own items to fill with things or to be put in things.
-![Doodle of custom item generating page](https://github.com/Stuart-Y/startup/blob/main/Custom%20Item%20Page.pdf)
+![Doodle of custom item generating page](https://github.com/Stuart-Y/startup/blob/main/Custom%20Item%20Page_page-0001.jpg)
 
 ### Why?
 Why? 
-![why](https://github.com/Stuart-Y/startup/blob/main/Why%20Page.pdf)
+![why](https://github.com/Stuart-Y/startup/blob/main/Why%20Page_page-0001.jpg)
 
 ### Internet Proofing
 If certain blacklisted objects are created in the custom object field users are sent to this page explaining why such things are not permittedd on my site
-![warning page doodle](https://github.com/Stuart-Y/startup/blob/main/I%20Wish%20I%20didn't%20need%20this%20page.pdf)
+![warning page doodle](https://github.com/Stuart-Y/startup/blob/main/I%20Wish%20I%20didn't%20need%20this%20page.jpg)
