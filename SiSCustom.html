@@ -1,6 +1,16 @@
+<!DOCTYPE html>
 <html lang = "en">
   <head>
     <!-- Page data-->
+    <nav>
+      <menu>
+        <li><a href="SiSHome.html">Home</a></li>
+        <li><a href="SiSCustom.html">Custom</a></li>
+        <li><a href="SISBio.html">About</a></li>
+        <li><a href="SISWhy"> why?</a></li>
+        <li><a href="SISLogin">login</a></li>
+      </menu>
+    </nav>
   </head>
   <body>
     <header>
@@ -11,9 +21,21 @@
         <h3>Make Your Own Thing</h3>
     </div>
     <div id="CustomItemOptions" class="optionBox">
-        <radio>
-            
-        </radio>
+      <fieldset>
+        <input type="radio" id="container" name="itemType" value="container">
+        <label for="html">Container</label><br>
+        <input type="radio" id="filler" name="itemType" value="filler">
+        <label for="css">Filler</label><br>      
+        <input type="text" placeholder="item name"/>
+        <input type="number" placeholder="size/volume"/>
+        <select name="itemShape" id="shape">
+          <option value="sphere">Sphere</option>
+          <option value="cube">Cube</option>
+        </select>
+      </fieldset>
     </div>
+    <footer>
+      <a href="https://github.com/Stuart-Y/startup">GitHub</a>
+    </footer>
   </body>
 </html>
