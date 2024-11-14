@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang = "en">
-  <header>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stuff in Stuff</title>
-  </header>
-  <head>
-    <!-- Page data-->
-    <nav>
-      <menu>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="SISCustom.html">Custom</a></li>
-        <li><a href="SISBio.html">About</a></li>
-        <li><a href="SISWhy.html"> why?</a></li>
-        <li><a href="SISLogin.html">login</a></li>
-        <!-- TODO Delete ASAP-->
-        <li><a href="SISUser.html">MockUser</a></li>
-    </nav>
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+  />
   </head>
-  <body>
-    <header>
-      <div id="HomeTitle" class="title">
-        <h1> Stuff in Stuff<sup>&reg;</sup></h1>
-      </div>
+  <body class="bg-dark text-light">
+    <header class="container-fluid">
+      <!-- Logo Home Button -->
+
+      <nav class="navbar fixed-top navbar-dark">
+        <a class="navbar-brand" href="#">Stuff in Stuff<sup>&reg;</sup></a>
+        <menu>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="SISCustom.html">Custom</a></li>
+          <li class="nav-item"><a class="nav-link" href="SISBio.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="SISWhy.html"> why?</a></li>
+          <li class="nav-item"><a class="nav-link" href="SISLogin.html">login</a></li>
+        </menu>
+      </nav>
     </header>
+    <main class="container-fluid bg-secondary text-center">
     <div id="CustomTitle" class="title">
         <h1>Custom</h1>
         <h3>Make Your Own Thing</h3>
@@ -41,7 +46,8 @@
         </select>
       </fieldset>
     </div>
-    <footer>
+    </main>
+    <footer class="bg-dark text-white-50">
       <a href="https://github.com/Stuart-Y/startup">GitHub</a>
     </footer>
   </body>

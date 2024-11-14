@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+}
+
+#stuffPicker{
+    flex-direction: column;
+}
+
+.title {
+    font-family: 'Libre Baskerville', serif;
+
+}
