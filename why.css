@@ -1,0 +1,10 @@
+.why {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Libre Baskerville';
+}
+
+p {
+    font-family: 'Tangerine', serif;
+    font-size: xxx-large;
+}
