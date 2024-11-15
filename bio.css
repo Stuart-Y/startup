@@ -1,0 +1,9 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Libre Baskerville';
+}
+
+h1 {
+    font-size: xx-large;
+}
