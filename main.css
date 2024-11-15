@@ -8,6 +8,14 @@ body {
     flex: 0 80px;
     background-color: #033811;
   }
+
+  .content {
+    background-color: #11782c;
+    border-radius: 1em;
+    border: 2%;
+    margin: 2%;
+    padding: 2%;
+  }
   
   main {
     flex: 1 calc(100vh - 110px);
@@ -61,18 +69,24 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 1000px;
     height: 75%;
+    padding: 1%;
     align-items: center;
-    padding: 1em;
     font-family: "Libre Baskerville";
+    background-color: #0b5e21;
+    border-radius: 3%;
   }
 
   #StuffPicker {
     display: flex;
     flex-flow: row wrap;
     width: 50%;
-    height: 1 calc(60vh - 100px);;
+    height: 70%;
     align-items: center;
+    background-color: #11782c;
+    padding: 2%;
+    border-radius: 3%;
   }
 
   .chooseItem {

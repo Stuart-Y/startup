@@ -18,7 +18,7 @@
           <!-- Logo Home Button -->
     
           <nav class="navbar fixed-top navbar-dark">
-            <a class="navbar-brand" href="#">Stuff in Stuff<sup>&reg;</sup></a>
+            <a class="navbar-brand" href="index.html">Stuff in Stuff<sup>&reg;</sup></a>
             <menu>
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="SISCustom.html">Custom</a></li>
@@ -28,31 +28,50 @@
             </menu>
           </nav>
         </header>
-        <main class=" bg-secondary">
+        <main>
             <div id="userMain">
-                <div id="UserLeft">
-                    <h1>Username</h1>
-                    <div id="favorite" class="activityBox">
-                        <h3>Favorite Item</h3>
-                        <image alt="Favorite Item Picture(will be done in js)" src="">
+                    <div id="name">
+                        <h1>[username]</h1>
                     </div>
-                    <div id="UserCustomItems" class="activityBox">
+                    <div id="favorite" class="content">
+                        <h3>Favorite Item</h3>
+                        <image alt="Favorite Item Picture(will be done in js)" src="QuestionMark.png">
+                        <p>[undefined] <br>Weight: null <br>Volume: null <br>Shape: null</p>
+                    </div>
+                    <div id="UserCustomItems" class="content">
                         <div id="UserCustomTitle" class="title">
                             <h3>Custom Items</h3>
                         </div>
                     <!--Dynamic List of User Generated Items-->
                     </div>                        
-                </div>
-                <div id="userRight" class="content">
-                    <div id="LatestFills" class="activityBox">
+                    <div id="LatestFills" class="content">
                         <div id="LatestTitle" class="title">
-                            <h3>Latest Stuff in Stuff</h3>
-                            <p>Realtime Communication</p>
+                            <h3>Latest</h3>
+                            <table>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Number</th>
+                                    <th>Container</th>
+                                    <th>User</th>
+                                </tr>
+                                <tr>
+                                    <td>Koala</td>
+                                    <td>10^8</td>
+                                    <td>Skyscraper</td>
+                                    <td>Bob</td>
+                                </tr>
+                                <tr>
+                                    <td>Marble</td>
+                                    <td>5774</td>
+                                    <td>Vacuum Cleaner</td>
+                                    <td>Bob</td>
+                                </tr>
+                            </table>
                             <p><em>10^8 koalas fit in the empire state building (UserBob)</em></p>    
                         </div>
                         <!--Dynamic List of Recent Fill Queries Websocket REALTIME QUERIES-->
                     </div>
-                    <div id="JokeBox" class="activityBox">
+                    <div id="JokeBox" class="content">
                         <div id="JokeTitle" class="title">
                             <h3>Dad Jokes</h3>
                         </div>
@@ -60,7 +79,6 @@
                             I've Got a pretty good joke about butter but I don't want you spreading it around
                         </p>
                         <!--Random Dad Joke-->
-                    </div>
                     <!--Dynamic List of User Generated Items-->
                 </div>
             </div>
