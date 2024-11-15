@@ -17,7 +17,8 @@ body {
   }
   
   footer {
-    flex: 0 30px;
+    text-align: center;
+    align-items: center;
   }
   
   menu {
@@ -38,7 +39,7 @@ body {
   }
   
   footer a {
-    float: right;
+    float: center;
   }
   
   @media (max-height: 600px) {
@@ -51,4 +52,38 @@ body {
     main {
       flex: 1 100vh;
     }
+  }
+
+  #fillerContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 75%;
+    align-items: center;
+    padding: 2em;
+  }
+
+  #StuffPicker {
+    display: flex;
+    flex-flow: row wrap;
+    width: 75%;
+    height: 75%;
+    align-items: center;
+  }
+
+  .chooseItem {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 2.5%;
+  }
+
+  #packingType {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .factbox {
+    font-size: larger;
+    
   }

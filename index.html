@@ -28,20 +28,22 @@
       </nav>
     </header>
     <main class="container-fluid bg-secondary text-center">
+    <div class="mainContent", id="fillerContent">
+      <h1>Fill X with Y</h1>
     <div id ="StuffPicker" class="activityBox">
-      <div id="FillPicker">
+      <div id="FillPicker", class="chooseItem">
         <h2> How many </h2>
         <img alt="Question Mark", src="QuestionMark.png" >
         <select class=itemPicker></select>
       </div>
-      <div id="StuffedPicker">
-        <h2>can fit in</h2>
+      <div id="StuffedPicker", class="chooseItem">
+        <h2>Can fit in</h2>
         <img alt="Question Mark", src="QuestionMark.png" >
         <select class="itemPicker"></select>
       </div>
     </div>
     <div id="answerbox" class="factbox">
-      <p>answer:__</p>
+      <h2>Answer:__</h2>
     </div>
     <div id="fillSettings" class="optionBox">
       <h3>Packing Type</h3>
@@ -52,11 +54,14 @@
         <label for="html">Shape Packing</label><br>
       </fieldset>
     </div>
+  </div>
     </main>
     <footer class="bg-dark text-white-50">
       <!-- copyright stuff -->
       <!--dynamically share this footer across pages-->
+      <div>
       <a href="https://github.com/Stuart-Y/startup">GitHub</a>
+      </div>
     </footer>
   </body>
 </html>
