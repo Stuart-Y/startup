@@ -27,7 +27,7 @@
         </menu>
       </nav>
     </header>
-    <main class="container-fluid bg-secondary text-center">
+    <main class="container-fluid text-center">
       <div class="mainContent", id="fillerContent">
         <h1>Fill X with Y</h1>
         <div id ="StuffPicker" class="activityBox">
@@ -48,15 +48,19 @@
         <div id="fillSettings" class="optionBox">
           <h3>Packing Type</h3>
           <fieldset id="packingType" class="mathPicker">
-            <input type="radio" id="volume" name="fillType" value="container">
-            <label for="html">Volume</label><br>
-            <input type="radio" id="shapeFill" name="fillType" value="container">
-            <label for="html">Shape Packing</label><br>
+            <div class="packRad">
+              <input type="radio" id="volume" name="fillType" value="container">
+              <label for="html">Volume</label><br>
+            </div>
+            <div class="packRad">
+              <input type="radio" id="shapeFill" name="fillType" value="container">
+              <label for="html">Shape Packing</label><br>
+            </div>
           </fieldset>
         </div>
       </div>
     </main>
-    <footer class="bg-dark text-white-50">
+    <footer class="text-white-50">
       <!-- copyright stuff -->
       <!--dynamically share this footer across pages-->
       <div>

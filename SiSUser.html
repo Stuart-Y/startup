@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Stuff in Stuff</title>
         <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="user.css" />
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
         <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -27,39 +28,42 @@
             </menu>
           </nav>
         </header>
-        <main class="container-fluid bg-secondary text-center">
-        <div id="UserTitle" class="title">
-            <h1>Username</h1>
-        </div>
-        <div id="favorite" class="activityBox">
-            <div id="FavoriteTitle" class="title">
-                <h3>Favorite Item</h3>
+        <main class=" bg-secondary">
+            <div id="userMain">
+                <div id="UserLeft">
+                    <h1>Username</h1>
+                    <div id="favorite" class="activityBox">
+                        <h3>Favorite Item</h3>
+                        <image alt="Favorite Item Picture(will be done in js)" src="">
+                    </div>
+                    <div id="UserCustomItems" class="activityBox">
+                        <div id="UserCustomTitle" class="title">
+                            <h3>Custom Items</h3>
+                        </div>
+                    <!--Dynamic List of User Generated Items-->
+                    </div>                        
+                </div>
+                <div id="userRight" class="content">
+                    <div id="LatestFills" class="activityBox">
+                        <div id="LatestTitle" class="title">
+                            <h3>Latest Stuff in Stuff</h3>
+                            <p>Realtime Communication</p>
+                            <p><em>10^8 koalas fit in the empire state building (UserBob)</em></p>    
+                        </div>
+                        <!--Dynamic List of Recent Fill Queries Websocket REALTIME QUERIES-->
+                    </div>
+                    <div id="JokeBox" class="activityBox">
+                        <div id="JokeTitle" class="title">
+                            <h3>Dad Jokes</h3>
+                        </div>
+                        <p>
+                            I've Got a pretty good joke about butter but I don't want you spreading it around
+                        </p>
+                        <!--Random Dad Joke-->
+                    </div>
+                    <!--Dynamic List of User Generated Items-->
+                </div>
             </div>
-            <image alt="Favorite Item Picture(will be done in js)" src="">                    
-        </div>
-        <div id="LatestFills" class="activityBox">
-            <div id="LatestTitle" class="title">
-                <h3>Latest Stuff in Stuff</h3>
-                <p>Realtime Communication</p>
-                <p><em>10^8 koalas fit in the empire state building (UserBob)</em></p>    
-            </div>
-            <!--Dynamic List of Recent Fill Queries Websocket REALTIME QUERIES-->
-        </div>
-        <div id="UserCustomItems" class="activityBox">
-            <div id="UserCustomTitle" class="title">
-                <h3>Custom Items</h3>
-            </div>
-            <!--Dynamic List of User Generated Items-->
-        </div>
-        <div id="JokeBox" class="activityBox">
-            <div id="JokeTitle" class="title">
-                <h3>Dad Jokes</h3>
-            </div>
-            <p>
-                I've Got a pretty good joke about butter but I don't want you spreading it around
-            </p>
-            <!--Random Dad Joke-->
-        </div>
         </main>
         <footer class="bg-dark text-white-50">
             <a href="https://github.com/Stuart-Y/startup">GitHub</a>
