@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stuff in Stuff</title>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="custom.css" />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -28,24 +29,24 @@
       </nav>
     </header>
     <main class="container-fluid bg-secondary text-center">
-    <div id="CustomTitle" class="title">
+      <div id="CustomMain" class="content">
         <h1>Custom</h1>
         <h3>Make Your Own Thing</h3>
-    </div>
-    <div id="CustomItemOptions" class="optionBox">
-      <fieldset>
-        <input type="radio" id="container" name="itemType" value="container">
-        <label for="html">Container</label><br>
-        <input type="radio" id="filler" name="itemType" value="filler">
-        <label for="css">Filler</label><br>      
-        <input type="text" placeholder="item name"/>
-        <input type="number" placeholder="size/volume"/>
-        <select name="itemShape" id="shape">
-          <option value="sphere">Sphere</option>
-          <option value="cube">Cube</option>
-        </select>
-      </fieldset>
-    </div>
+        <div id="CustomItemOptions" class="optionBox">
+          <fieldset>
+            <input type="radio" id="container" name="itemType" value="container">
+            <label for="html">Container</label><br>
+            <input type="radio" id="filler" name="itemType" value="filler">
+            <label for="css">Filler</label><br>      
+            <input type="text" placeholder="item name"/>
+            <input type="number" placeholder="size/volume"/>
+            <select name="itemShape" id="shape">
+              <option value="sphere">Sphere</option>
+              <option value="cube">Cube</option>
+            </select>
+          </fieldset>
+        </div>  
+      </div>
     </main>
     <footer class="bg-dark text-white-50">
       <a href="https://github.com/Stuart-Y/startup">GitHub</a>
