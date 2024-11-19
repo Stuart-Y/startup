@@ -42,7 +42,9 @@ Programmed radio buttons
 Created a custom jpeg of a question mark
 Designd and programmed headers and footers
 Made div for websocket - calls for random dad jokes :)
-Broadcast other users' exploits
 
 ## Phase 2: CSS
-To be continued...
+Established layouts for object selection, content pages and user information
+Selected readable, interesting fonts
+Established color scheme
+
