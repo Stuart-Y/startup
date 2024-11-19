@@ -9,7 +9,7 @@ main {
     grid-template-columns: [col1] 8fr [last] 2fr;
     grid-template-rows:[row1] 1fr [row2] 6fr [row3] 4fr;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 50px);
     justify-items: stretch;
     border-radius: 2em;
 }
