@@ -3,7 +3,10 @@ import React from 'react';
 export function Bio() {
   return (
     <main className='container-fluid bg-secondary text-center'>
-      <div>Bio displayed here</div>
+      <div id="aboutMain" class="content">
+        <h1>About</h1>
+        <p>At some point I may put useful information in here. For now this seems enough</p>
+      </div>
     </main>
   );
 }

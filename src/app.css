@@ -1,4 +1,4 @@
-body {
+.body {
     display: flex;
     flex-direction: column;
     min-width: 375px;
@@ -7,6 +7,18 @@ body {
   header {
     flex: 0 80px;
     background-color: #033811;
+  }
+
+  .nav-link{
+    color: wheat;
+  }
+
+  .nav-link.active{
+    color: white;
+  }
+
+  #logo{
+    color: wheat;
   }
 
   .content {
@@ -18,7 +30,7 @@ body {
   }
   
   main {
-    flex: 1 calc(100vh - 110px);
+    flex: 1 calc(100vh - 100px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,9 +39,9 @@ body {
   }
   
   footer {
-    text-align: center;
-    align-items: center;
     background-color: #063613;
+    align-items: center;
+    flex: 0 30px;
   }
   
   menu {
@@ -49,10 +61,6 @@ body {
     padding: 0 0.3em;
   }
   
-  footer a {
-    float: center;
-  }
-  
   @media (max-height: 600px) {
     header {
       display: none;
@@ -63,57 +71,4 @@ body {
     main {
       flex: 1 100vh;
     }
-  }
-
-  #fillerContent {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1000px;
-    height: 75%;
-    padding: 1%;
-    align-items: center;
-    font-family: "Libre Baskerville";
-    background-color: #0b5e21;
-    border-radius: 3%;
-  }
-
-  #StuffPicker {
-    display: flex;
-    flex-flow: row wrap;
-    width: 50%;
-    height: 70%;
-    align-items: center;
-    background-color: #11782c;
-    padding: 2%;
-    border-radius: 3%;
-  }
-
-  .chooseItem {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  padding:  2vh;
-  }
-
-  #volume {
-    padding: 5px;
-  }
-
-  #shapeFill {
-    padding: 5px;
-  }
-
-  .factbox {
-    font-size: larger;
-    
-  }
-
-  .mathPicker {
-    display: flex;
-    flex-flow: row wrap;
-  }
-
-  .packRad {
-    padding: 10px;
   }

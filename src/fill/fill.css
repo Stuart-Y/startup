@@ -1,0 +1,77 @@
+.fillContent {
+    display: grid;
+    grid-template-rows: [row1] 1fr [row2] 5fr [row3] 1fr [row4] 1fr;
+    max-height: 66vh;
+}
+
+#fillTitle{
+    grid-row: 1/2;
+}
+
+#StuffPicker {
+    display: grid;
+    grid-template-columns: [col1] 1fr [last] 1fr;
+    align-items: center;
+    height:100%;
+    background-color: #11782c;
+    padding: 2%;
+    border-radius: 3%;
+    justify-items: stretch;
+    grid-row: 2/3;
+  }
+
+  #answerBox{
+    grid-row: 3/4;
+  }
+
+  #fillSettings{
+    grid-row: 4/5;
+    align-items: center;
+  }
+
+  .chooseItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding:  2vh;
+  }
+
+  #filledPicker {
+    text-align: center;
+    grid-column: 1/2;
+  }
+
+  #stuffedPicker{
+    text-align: center;
+    grid-column: 2/3;
+  }
+
+  #volume {
+    padding: 5px;
+  }
+
+  #shapeFill {
+    padding: 5px;
+  }
+
+  .factbox {
+    font-size: larger;
+    
+  }
+
+  .mathPicker {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  #packingType{
+    align-items: center;
+  }
+
+  .packRad {
+    padding: 10px;
+  }
+
+  .QMark {
+    min-width: 10em;
+  }

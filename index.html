@@ -1,72 +1,18 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stuff in Stuff</title>
-    <link rel="stylesheet" href="main.css" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-    crossorigin="anonymous"
-  />
-  </head>
-  <body class="bg-dark text-light">
-    <header class="container-fluid">
-      <!-- Logo Home Button -->
 
-      <nav class="navbar fixed-top navbar-dark">
-        <a class="navbar-brand" href="index.html">Stuff in Stuff<sup>&reg;</sup></a>
-        <menu>
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="SISCustom.html">Custom</a></li>
-          <li class="nav-item"><a class="nav-link" href="SISBio.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="SISWhy.html"> why?</a></li>
-          <li class="nav-item"><a class="nav-link" href="SISLogin.html">login</a></li>
-          <li class="nav-item"><a class="nav-link" href="SISUser.html">MockUser</a></li>
-        </menu>
-      </nav>
-    </header>
-    <main class="container-fluid text-center">
-      <div class="mainContent", id="fillerContent">
-        <h1>Fill X with Y</h1>
-        <div id ="StuffPicker" class="activityBox">
-          <div id="FillPicker", class="chooseItem">
-            <h2> How many </h2>
-            <img alt="Question Mark", src="QuestionMark.png" >
-            <select class=itemPicker></select>
-          </div>
-          <div id="StuffedPicker", class="chooseItem">
-            <h2>Can fit in</h2>
-            <img alt="Question Mark", src="QuestionMark.png" >
-            <select class="itemPicker"></select>
-          </div>
-        </div>
-        <div id="answerbox" class="factbox">
-          <h2>Answer:__</h2>
-        </div>
-        <div id="fillSettings" class="optionBox">
-          <h3>Packing Type</h3>
-          <fieldset id="packingType" class="mathPicker">
-            <div class="packRad">
-              <input type="radio" id="volume" name="fillType" value="container">
-              <label for="html">Volume</label><br>
-            </div>
-            <div class="packRad">
-              <input type="radio" id="shapeFill" name="fillType" value="container">
-              <label for="html">Shape Packing</label><br>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-    </main>
-    <footer class="text-white-50">
-      <!-- copyright stuff -->
-      <!--dynamically share this footer across pages-->
-      <div>
-      <a href="https://github.com/Stuart-Y/startup">GitHub</a>
-      </div>
-    </footer>
+    <title>Stuff React</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
   </body>
 </html>

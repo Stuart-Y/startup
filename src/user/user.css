@@ -15,7 +15,6 @@ main {
 }
 
 #name {
-    grid-area: name;
     text-align: center;
     background-color: #39403a;
     border-radius: 2em;
@@ -24,14 +23,12 @@ main {
 }
 
 #favorite {
-    grid-area: fav;
     text-align: center;
     grid-column: 1 / 2 ;
     grid-row: 2 / 3;
 }
 
 #latestFills {
-    grid-area: updates;
     text-align: center;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -39,14 +36,12 @@ main {
 }
 
 #UserCustomItems {
-    grid-area: custom;
     text-align: center;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
 }
 
 #jokeBox{
-    grid-area: joke;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     text-wrap: wrap;
