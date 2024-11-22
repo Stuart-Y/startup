@@ -1,6 +1,6 @@
 .fillContent {
     display: grid;
-    grid-template-rows: [row1] 1fr [row2] 5fr [row3] 1fr [row4] 1fr;
+    grid-template-rows: 1fr 5fr 1fr 1fr;
     max-height: 66vh;
 }
 
@@ -10,7 +10,7 @@
 
 #StuffPicker {
     display: grid;
-    grid-template-columns: [col1] 1fr [last] 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     height:100%;
     background-color: #11782c;
@@ -46,17 +46,8 @@
     grid-column: 2/3;
   }
 
-  #volume {
-    padding: 5px;
-  }
-
-  #shapeFill {
-    padding: 5px;
-  }
-
   .factbox {
     font-size: larger;
-    
   }
 
   .mathPicker {
@@ -64,12 +55,10 @@
     flex-flow: row wrap;
   }
 
-  #packingType{
-    align-items: center;
-  }
-
   .packRad {
     padding: 10px;
+    width: 50%;
+    font-size: large;
   }
 
   .QMark {

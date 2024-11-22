@@ -67,8 +67,8 @@ export default function App() {
 
         <footer className='bg-dark text-white-50 fixed-bottom'>
           <div className='container-fluid'>
-            <span >Storge</span>
-            <a className='text-reset' href='https://github.com/Stuart-Y/startup'>
+            <span className='foot-text'>Storge</span>
+            <a className='text-reset foot-text' href='https://github.com/Stuart-Y/startup'>
               Github
             </a>
           </div>

@@ -13,10 +13,6 @@
     color: wheat;
   }
 
-  .nav-link.active{
-    color: white;
-  }
-
   #logo{
     color: wheat;
   }
@@ -25,7 +21,6 @@
     background-color: #11782c;
     border-radius: 1em;
     border: 2%;
-    margin: 2%;
     padding: 2%;
   }
   
@@ -40,7 +35,10 @@
   
   footer {
     background-color: #063613;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 0.5em;
     flex: 0 30px;
   }
   
@@ -54,7 +52,6 @@
   
   .navbar-brand {
     padding-left: 0.3em;
-    border-bottom: solid rgb(182, 182, 182) thin;
   }
   
   menu .nav-item {
@@ -75,4 +72,8 @@
 
   .fancyBox{
     border-radius: 0.5em;
+}
+
+.foot-text{
+  padding: 0.3em;
 }
