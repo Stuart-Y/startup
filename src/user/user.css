@@ -1,21 +1,16 @@
-main {
-    padding: 5%;
-}
-
 #userMain {
     background-color: #f0f0c7;
     padding: 2%;
     display: grid;
-    grid-template-columns: [col1] 8fr [last] 2fr;
-    grid-template-rows:[row1] 1fr [row2] 6fr [row3] 4fr;
-    width: 100%;
+    grid-template-columns: 8fr 2fr;
+    grid-template-rows: 1fr 6fr 4fr;
     height: calc(100% - 50px);
     justify-items: stretch;
     border-radius: 2em;
+    text-align: center;
 }
 
 #name {
-    text-align: center;
     background-color: #39403a;
     border-radius: 2em;
     grid-column: 1 / 3;
@@ -23,20 +18,16 @@ main {
 }
 
 #favorite {
-    text-align: center;
     grid-column: 1 / 2 ;
     grid-row: 2 / 3;
 }
 
 #latestFills {
-    text-align: center;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    text-wrap: wrap;
 }
 
 #UserCustomItems {
-    text-align: center;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
 }
@@ -44,7 +35,6 @@ main {
 #jokeBox{
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    text-wrap: wrap;
 }
 
 table, th, td {

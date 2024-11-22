@@ -6,6 +6,7 @@ export function Warning() {
     <main className='container-fluid bg-secondary text-center'>
         <div id="WarningMain" class="content">
           <h1>I Wish I Didn't Need This Page</h1>
+            <br/>
             <p>
                 I am aware of some corners of the internet and can imagine some less savory imagery 
                 generated that this websites premise might render. I choose not to host this on my site. Sorry for the 

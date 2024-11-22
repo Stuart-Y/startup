@@ -72,3 +72,7 @@
       flex: 1 100vh;
     }
   }
+
+  .fancyBox{
+    border-radius: 0.5em;
+}
