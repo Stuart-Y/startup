@@ -2,6 +2,41 @@ import React from 'react';
 import './user.css'
 
 export function User() {
+  const [items, getItems] = React.useState([]);
+
+  React.useEffect(() => {
+    const itemsJson = localStorage.getItem('scores');
+    if (itemsJson) {
+      getItems(JSON.parse(itemsJson))
+    }
+  }, []);
+
+  const itemRows = [];
+  if (items.length) {
+    for (const [i, item] of items.entries()) {
+      itemRows.push(
+        <tr key={i}>
+          <td>{item.name}</td>
+          <td>{score.density}</td>
+          <td>{score.volume}</td>
+          <td>{score.shape}</td>
+        </tr>
+      );
+    }
+  } else {
+    itemRows.push(
+      <tr key='0'>
+        <td colSpan='4'>
+          Hey,
+          <NavLink className='nav-link' to='custom'>
+            Add
+          </NavLink>
+          some items you'd like to use
+        </td>
+      </tr>
+    );
+  }
+
   return (
     <main className='container-fluid bg-secondary text-center'>
       <div id="userMain">
@@ -18,7 +53,6 @@ export function User() {
           <table>
             <tr>
               <th>Name</th>
-              <th>Density</th>
               <th>Volume</th>
               <th>Shape</th>
             </tr>

@@ -1,6 +1,8 @@
 import React from 'react';
 import './fill.css';
 
+import { VolumeFill, ItemFill } from './fillMath'
+
 export function Fill() {
   return (
     <main className='container-fluid bg-secondary text-center'>

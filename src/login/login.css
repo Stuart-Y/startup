@@ -1,0 +1,8 @@
+#loginText{
+    margin: 2%;
+}
+
+#loginButton > *{
+    display: block;
+    margin: 30px 0;
+}
