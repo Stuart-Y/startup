@@ -62,7 +62,7 @@ export default function App() {
         </header>
 
         <Routes>
-          <Route path='/' element={<Fill />} exact />
+          <Route path='/' element={<Fill userName={userName} authState={authState}/>} exact />
           <Route path='/bio' element={<Bio />} />
           <Route path='/custom' element={<Custom />} />
           <Route path='/login' element={<Login 
@@ -74,7 +74,7 @@ export default function App() {
             }}
             />} 
           />
-          <Route path='/user' element={<User />} />
+          <Route path='/user' element={<User userName={userName}/>} />
           <Route path='/warning' element={<Warning />} />
           <Route path='/why' element={<Why />} />
         </Routes>

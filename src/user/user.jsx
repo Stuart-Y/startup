@@ -1,11 +1,11 @@
 import React from 'react';
 import './user.css'
 
-export function User() {
+export function User(props) {
   const [items, getItems] = React.useState([]);
 
   React.useEffect(() => {
-    const itemsJson = localStorage.getItem('scores');
+    const itemsJson = localStorage.getItem('items');
     if (itemsJson) {
       getItems(JSON.parse(itemsJson))
     }
@@ -17,9 +17,9 @@ export function User() {
       itemRows.push(
         <tr key={i}>
           <td>{item.name}</td>
-          <td>{score.density}</td>
-          <td>{score.volume}</td>
-          <td>{score.shape}</td>
+          <td>{item.density}</td>
+          <td>{item.volume}</td>
+          <td>{item.shape}</td>
         </tr>
       );
     }
@@ -28,9 +28,9 @@ export function User() {
       <tr key='0'>
         <td colSpan='4'>
           Hey,
-          <NavLink className='nav-link' to='custom'>
+          <a className='nav-link' to='custom'>
             Add
-          </NavLink>
+          </a>
           some items you'd like to use
         </td>
       </tr>
@@ -41,7 +41,7 @@ export function User() {
     <main className='container-fluid bg-secondary text-center'>
       <div id="userMain">
         <div id="name">
-          <h1>[username]</h1>
+          <h1>{props.userName}</h1>
         </div>
         <div id="favorite" className="content">
           <h3>Favorite Item</h3>
