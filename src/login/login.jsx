@@ -7,8 +7,8 @@ import { AuthState } from './authState';
 export function Login({ userName, authState, onAuthChange }) {
   return (
     <main className='container-fluid bg-secondary text-center'>
-      <div id="logMain" class="content">
-        {authState !== AuthState.Unknown && <h1>Hello! <br/>Here for a top-up?</h1>}
+      <div>
+        {authState !== AuthState.Unknown && <h1>Ready To Fill?</h1>}
         {authState === AuthState.Authenticated && (
           <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
         )}

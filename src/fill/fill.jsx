@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './fill.css';
 
 import { VolumeFill, ItemFill } from './fillMath'
+import { testFill, testContainer } from './tempTables';
+import DynamicDropdown from './dynamicDropdown'
+
+
 
 export function Fill() {
   return (
@@ -14,27 +18,27 @@ export function Fill() {
           <div id="fillPicker" className="chooseItem">
             <h2> How many </h2>
             <img alt="Question Mark" src="QuestionMark.png" className='QMark'></img>
-            <select className="itemPicker"></select>
+            <DynamicDropdown menuItems={testFill} />
           </div>
           <div id="stuffedPicker" className="chooseItem">
             <h2>Can fit in</h2>
             <img alt="Question Mark" src="QuestionMark.png" className='QMark'></img>
-            <select className="itemPicker"></select>
+            <DynamicDropdown menuItems={testContainer}/>
           </div>
         </div>
-        <div id="answerbox" class="factbox">
+        <div id="answerbox" className="factbox">
           <h2>Answer:__</h2>
         </div>
-        <div id="fillSettings" class="optionBox">
+        <div id="fillSettings" className="optionBox">
           <h3>Packing Type</h3>
-          <fieldset id="packingType" class="mathPicker">
-            <div class="packRad">
+          <fieldset id="packingType" className="mathPicker">
+            <div className="packRad">
               <input type="radio" id="volume" name="fillType" value="container"></input>
-              <label for="html">Volume</label><br></br>
+              <label htmlFor="html">Volume</label><br></br>
             </div>
-            <div class="packRad">
+            <div className="packRad">
               <input type="radio" id="shapeFill" name="fillType" value="container"></input>
-              <label for="html">Shape Packing</label><br></br>
+              <label htmlFor="html">Shape Packing</label><br></br>
             </div>
           </fieldset>
           </div>

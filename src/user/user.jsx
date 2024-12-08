@@ -43,12 +43,12 @@ export function User() {
         <div id="name">
           <h1>[username]</h1>
         </div>
-        <div id="favorite" class="content">
+        <div id="favorite" className="content">
           <h3>Favorite Item</h3>
           <image alt="Favorite Item Picture(will be done in js)" src="QuestionMark.png"/>
             <p>[undefined] <br/>Weight: null <br/>Volume: null <br/>Shape: null</p>
         </div>
-        <div id="UserCustomItems" class="content">
+        <div id="UserCustomItems" className="content">
           <h3>Custom Items</h3>
           <table>
             <tr>
@@ -58,7 +58,7 @@ export function User() {
             </tr>
           </table>
         </div>                     
-        <div id="LatestFills" class="content">
+        <div id="LatestFills" classNme="content">
           <h3>Latest</h3>
           <table>
             <tr>
