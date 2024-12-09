@@ -24,7 +24,7 @@
     padding: 1em;
   }
 
-  .content h1 {
+  .content h1, .content h3 {
     background-color: #033811;
     border-radius: 0.75em;
     padding: 1%;

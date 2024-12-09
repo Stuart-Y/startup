@@ -8,6 +8,7 @@
     justify-items: stretch;
     border-radius: 2em;
     text-align: center;
+    gap: 10px;
 }
 
 #name {

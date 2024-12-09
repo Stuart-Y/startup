@@ -98,7 +98,7 @@ import './itemForm.css'
             <option value="fluid">Fluid</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-secondary">
+        <button type="submit" className="btn btn-secondary" id="submit">
           Create
         </button>
       </fieldset>

@@ -3,13 +3,39 @@ import './user.css'
 
 export function User(props) {
   const [items, getItems] = React.useState([]);
+  const [favoriteItem, setFavoriteItem] = React.useState(null);
+  const [joke, setJoke] = React.useState("Loading joke...");
 
   React.useEffect(() => {
     const itemsJson = localStorage.getItem('items');
     if (itemsJson) {
-      getItems(JSON.parse(itemsJson))
+      const itemsArray = JSON.parse(itemsJson);
+      getItems(itemsArray);
+
+      const highestUsedItem = itemsArray.reduce((prev, current) => {
+        return (prev.used > current.used) ? prev : current;
+      }, {});
+
+      setFavoriteItem(highestUsedItem);
     }
   }, []);
+
+  React.useEffect(() => {
+    setJoke("What hppens to a Gungan in a sandstorm... Jar Jar Blinks")
+  }, []);
+
+  /*useEffect(() => {
+    const socket = new WebSocket('wss://your-websocket-url');
+
+    socket.onmessage = (event) => {
+      const newJoke = event.data; 
+      setJoke(newJoke);
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);*/
 
   const itemRows = [];
   if (items.length) {
@@ -17,7 +43,6 @@ export function User(props) {
       itemRows.push(
         <tr key={i}>
           <td>{item.name}</td>
-          <td>{item.density}</td>
           <td>{item.volume}</td>
           <td>{item.shape}</td>
         </tr>
@@ -26,7 +51,7 @@ export function User(props) {
   } else {
     itemRows.push(
       <tr key='0'>
-        <td colSpan='4'>
+        <td colSpan='3'>
           Hey,
           <a className='nav-link' to='custom'>
             Add
@@ -45,19 +70,36 @@ export function User(props) {
         </div>
         <div id="favorite" className="content">
           <h3>Favorite Item</h3>
-          <image alt="Favorite Item Picture(will be done in js)" src="QuestionMark.png"/>
-            <p>[undefined] <br/>Weight: null <br/>Volume: null <br/>Shape: null</p>
+          {/* Check if favoriteItem is set */}
+          {favoriteItem ? (
+            <div>
+              <img alt="Favorite Item Picture(will be done in js)" src="QuestionMark.png" />
+              <p>
+                {favoriteItem.name} <br />
+                Weight: {favoriteItem.weight || 'N/A'} <br />
+                Volume: {favoriteItem.volume} <br />
+                Shape: {favoriteItem.shape}
+              </p>
+            </div>
+          ) : (
+            <p>No favorite item found.</p>
+          )}
         </div>
         <div id="UserCustomItems" className="content">
-          <h3>Custom Items</h3>
+        <h3>Custom Items</h3>
           <table>
-            <tr>
-              <th>Name</th>
-              <th>Volume</th>
-              <th>Shape</th>
-            </tr>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Volume</th>
+                <th>Shape</th>
+              </tr>
+            </thead>
+            <tbody>
+              {itemRows}
+            </tbody>
           </table>
-        </div>                     
+        </div>                 
         <div id="LatestFills" className="content">
           <h3>Latest</h3>
           <table>
@@ -85,7 +127,7 @@ export function User(props) {
         <div id="JokeBox" class="content">
           <h3>Dad Jokes</h3>
           <p>
-            I've Got a pretty good joke about butter but I don't want you spreading it around
+            {joke}
           </p>
         </div>
       </div>
