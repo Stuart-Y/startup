@@ -93,11 +93,25 @@ export function Fill() {
           <h3>Packing Type</h3>
           <fieldset id="packingType" className="mathPicker">
             <div className="packRad">
-              <input type="radio" id="volume" name="fillType" value="container"></input>
+              <input 
+                type="radio" 
+                id="volume" 
+                name="fillType" 
+                value="volume"
+                onChange={handleFillTypeChange} 
+                checked={selectedFillType === 'volume'}
+              />
               <label htmlFor="html">Volume</label><br></br>
             </div>
             <div className="packRad">
-              <input type="radio" id="shapeFill" name="fillType" value="container"></input>
+              <input 
+                type="radio" 
+                id="shapeFill" 
+                name="fillType" 
+                value="shape"
+                onChange={handleFillTypeChange} 
+                checked={selectedFillType === 'shape'} 
+              />
               <label htmlFor="html">Shape Packing</label><br></br>
             </div>
           </fieldset>
