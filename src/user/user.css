@@ -15,31 +15,31 @@
     border-radius: 2em;
     grid-column: 1 / 3;
     grid-row: 1 / 2;
-    padding: 2%;
+    border: 1em;
 }
 
 #favorite {
     grid-column: 1 / 2 ;
     grid-row: 2 / 3;
-    padding: 2%;
+    border: 1em;
 }
 
 #latestFills {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    padding: 2%;
+    border: 1em;
 }
 
 #UserCustomItems {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    padding: 2%;
+    border: 1em;
 }
 
 #jokeBox{
     grid-column: 1 / 2;
     grid-row: 3 / 4;
-    padding: 2%;
+    border: 1em;
 }
 
 table, th, td {
