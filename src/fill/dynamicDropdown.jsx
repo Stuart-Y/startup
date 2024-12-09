@@ -14,7 +14,7 @@ function DynamicDropdown({ menuItems, optionText }) {
         <option value="" disabled>{optionText}</option>
         {menuItems.map((item) => (
           <option key={item.id} value={item.id}>
-            {item.label}
+            {item.name}
           </option>
         ))}
       </select>

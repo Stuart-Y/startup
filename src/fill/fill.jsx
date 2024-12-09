@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './fill.css';
 
 import { VolumeFill, ItemFill } from './fillMath'
@@ -8,6 +8,18 @@ import DynamicDropdown from './dynamicDropdown'
 
 
 export function Fill() {
+  const [fillItems, setFillItems] = useState([]);
+  const [containerItems, setContainerItems] = useState([]);
+
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+    const fillers = storedItems.filter(item => item.type === 'filler');
+    const containers = storedItems.filter(item => item.type === 'container');
+
+    setFillItems([...testFill, ...fillers]);
+    setContainerItems([...testContainer, ...containers]);
+  }, []);  
+
   return (
     <main className='container-fluid bg-secondary text-center'>
       <div className='fillContent'>
@@ -18,12 +30,12 @@ export function Fill() {
           <div id="fillPicker" className="chooseItem">
             <h2> How many </h2>
             <img alt="Question Mark" src="QuestionMark.png" className='QMark'></img>
-            <DynamicDropdown menuItems={testFill} />
+            <DynamicDropdown menuItems={fillItems} optionText="Select Filler Item" />
           </div>
           <div id="stuffedPicker" className="chooseItem">
             <h2>Can fit in</h2>
             <img alt="Question Mark" src="QuestionMark.png" className='QMark'></img>
-            <DynamicDropdown menuItems={testContainer}/>
+            <DynamicDropdown menuItems={containerItems} optionText="Select Container"/>
           </div>
         </div>
         <div id="answerbox" className="factbox">
