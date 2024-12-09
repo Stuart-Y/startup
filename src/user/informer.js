@@ -1,32 +1,37 @@
 const FillEvent = {
     System: 'system',
-    End: 'gameEnd',
   };
   
   class EventMessage {
-    constructor(from, type, value) {
+    constructor(from, value) {
       this.from = from;
-      this.type = type;
       this.value = value;
     }
   }
   
-  class GameEventNotifier {
+  class FillEventNotifier {
     events = [];
-    handlers = [];
-  
+    handlers = []; 
+    
     constructor() {
-      // Simulate chat messages that will eventually come over WebSocket
+
       setInterval(() => {
-        const score = Math.floor(Math.random() * 3000);
-        const date = new Date().toLocaleDateString();
-        const userName = 'Eich';
-        this.broadcastEvent(userName, FillEvent.End, { name: userName, item: item, container: container });
+        const userName = 'Eich'; // Example user
+        const item = 'Koala';  // Example item
+        const container = 'Skyscraper'; // Example container
+        const number = Math.floor(Math.random() * 10000); // Random number of items
+        const fillEvent = {
+          item,
+          number,
+          container,
+          user: userName,
+        };
+        this.broadcastEvent(userName, fillEvent);  // Broadcast a new event every 5 seconds
       }, 5000);
     }
   
-    broadcastEvent(from, type, value) {
-      const event = new EventMessage(from, type, value);
+    broadcastEvent(from, value) {
+      const event = new EventMessage(from, value);
       this.receiveEvent(event);
     }
   

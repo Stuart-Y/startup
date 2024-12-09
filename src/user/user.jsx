@@ -5,6 +5,7 @@ export function User(props) {
   const [items, getItems] = React.useState([]);
   const [favoriteItem, setFavoriteItem] = React.useState(null);
   const [joke, setJoke] = React.useState("Loading joke...");
+  const [latestFills, setLatestFills] = React.useState([]);
 
   React.useEffect(() => {
     const itemsJson = localStorage.getItem('items');
@@ -23,6 +24,23 @@ export function User(props) {
   React.useEffect(() => {
     setJoke("What hppens to a Gungan in a sandstorm... Jar Jar Blinks")
   }, []);
+
+  /*React.useEffect(() => {
+    const socket = new WebSocket('wss://your-websocket-url');
+
+    socket.onmessage = (event) => {
+      const newFill = JSON.parse(event.data);
+
+      setLatestFills((prevFills) => {
+        const updatedFills = [newFill, ...prevFills];
+        return updatedFills.slice(0, 10);
+      });
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);*/
 
   /*useEffect(() => {
     const socket = new WebSocket('wss://your-websocket-url');
@@ -58,6 +76,26 @@ export function User(props) {
           </a>
           some items you'd like to use
         </td>
+      </tr>
+    );
+  }
+
+  const latestFillRows = [];
+  if (latestFills.length) {
+    for (const [i, fill] of latestFills.entries()) {
+      latestFillRows.push(
+        <tr key={i}>
+          <td>{fill.item}</td>
+          <td>{fill.number}</td>
+          <td>{fill.container}</td>
+          <td>{fill.user}</td>
+        </tr>
+      );
+    }
+  } else {
+    latestFillRows.push(
+      <tr key="0">
+        <td colSpan="4">No recent fills yet.</td>
       </tr>
     );
   }
@@ -101,30 +139,23 @@ export function User(props) {
           </table>
         </div>                 
         <div id="LatestFills" className="content">
-          <h3>Latest</h3>
+        <h3>Latest Fills</h3>
           <table>
-            <tr>
-              <th>Item</th>
-              <th>Number</th>
-              <th>Container</th>
-              <th>User</th>
-            </tr>
-            <tr>
-              <td>Koala</td>
-              <td>10^8</td>
-              <td>Skyscraper</td>
-              <td>Bob</td>
-            </tr>
-            <tr>
-              <td>Marble</td>
-              <td>5774</td>
-              <td>Vacuum Cleaner</td>
-              <td>Bob</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Number</th>
+                <th>Container</th>
+                <th>User</th>
+              </tr>
+            </thead>
+            <tbody>{latestFillRows}</tbody>
           </table>
-          <p><em>10^8 koalas fit in the empire state building (UserBob)</em></p>    
+          <p>
+            <em>10 most recent fills are displayed here.</em>
+          </p>
         </div>
-        <div id="JokeBox" class="content">
+        <div id="JokeBox" className="content">
           <h3>Dad Jokes</h3>
           <p>
             {joke}

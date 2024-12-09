@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { GameEvent, GameNotifier } from './gameNotifier';
+import { FillNotifier } from './informer';
 
 
 export function Updates(props){
     const [events, setEvent] = React.useState([]);
 
     React.useEffect(() => {
-        GameNotifier.addHandler(handleGameEvent);
+        FillNotifier.addHandler(handleFillEvent);
     
         return () => {
-          GameNotifier.removeHandler(handleGameEvent);
+          FillNotifier.removeHandler(handleFillEvent);
         };
     });
 
@@ -25,12 +25,12 @@ export function Updates(props){
     function createMessageArray() {
         const messageArray = [];
         for (const [i,event] of events.entries()){
-            const message = event.value.msg;
+            const message = `Item: ${event.value.item}, Number: ${event.value.number}, Container: ${event.value.container}`;
 
-            messageArray.push(        
-                <div key={i} className='event'>
-                    <span className={'player-event'}>{event.from.split('@')[0]}</span>
-                    {message}
+            messageArray.push(
+                <div key={i} className="event">
+                    <span className={'player-event'}>{event.from}</span>
+                    <span className="event-message">{message}</span>
                 </div>
             );
         }
