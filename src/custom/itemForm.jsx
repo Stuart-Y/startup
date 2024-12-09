@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './itemForm.css'
 
-function ItemForm() {
-  const [formData, setFormData] = useState({
-    type: '',
-    name: '',
-    volume: '',
-    shape: '',
-    used: 0
-  });
+  function ItemForm() {
+    const initialFormData = {
+      type: '',
+      name: '',
+      volume: '',
+      shape: '',
+      used: 0
+    };
+
+    const [formData, setFormData] = useState(initialFormData);
 
   const fieldChange = (event) => {
     const { name, value } = event.target;
@@ -21,7 +23,8 @@ function ItemForm() {
   async function saveItem(event) {
     event.preventDefault();
     console.log('Form data before saving:', formData);
-    updateCustomItemsLocal(formData)
+    updateCustomItemsLocal(formData);
+    setFormData(initialFormData);
   }
 
   function updateCustomItemsLocal(newItem) {
