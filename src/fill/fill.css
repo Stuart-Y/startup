@@ -64,3 +64,8 @@
   .QMark {
     min-width: 10em;
   }
+
+  #submit {
+    background-color: wheat;
+    color:#11782c;
+  }
