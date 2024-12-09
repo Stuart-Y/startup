@@ -3,5 +3,5 @@ export function VolumeFill(itemVol, containerVol) {
 }
 
 export function ItemFill(itemVol, itemShape, containerVol, containerShape) {
-    return -1
+    return "NA"
 }

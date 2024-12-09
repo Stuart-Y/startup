@@ -64,7 +64,3 @@
   .QMark {
     min-width: 10em;
   }
-
-  select, option {
-    color: black;
-  }
