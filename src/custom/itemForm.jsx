@@ -7,6 +7,7 @@ function ItemForm() {
     name: '',
     volume: '',
     shape: '',
+    used: 0
   });
 
   const fieldChange = (event) => {

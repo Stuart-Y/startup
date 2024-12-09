@@ -18,6 +18,13 @@ export default function App() {
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
+  const ProtectedRoute = ({ children }) => {
+    if (authState === AuthState.Unauthenticated) {
+      return <Navigate to="/login" />;
+    }
+    return children;
+  };
+
   return (
     <BrowserRouter>
       <div className='body bg-dark text-light'>
@@ -74,7 +81,14 @@ export default function App() {
             }}
             />} 
           />
-          <Route path='/user' element={<User userName={userName}/>} />
+          <Route 
+            path='/user' 
+              element={
+                <ProtectedRoute>
+                  <User userName={userName}/>
+                </ProtectedRoute>
+              } 
+            />
           <Route path='/warning' element={<Warning />} />
           <Route path='/why' element={<Why />} />
         </Routes>

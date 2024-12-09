@@ -58,7 +58,7 @@ export function User(props) {
             </tr>
           </table>
         </div>                     
-        <div id="LatestFills" classNme="content">
+        <div id="LatestFills" className="content">
           <h3>Latest</h3>
           <table>
             <tr>
