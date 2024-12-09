@@ -102,6 +102,9 @@ export function Fill() {
             </div>
           </fieldset>
           </div>
+          <div id="calculateButton">
+            <button onClick={handleCalculate}>Calculate</button>
+        </div>
       </div>
     </main>
   );
