@@ -23,6 +23,12 @@
     border: 2%;
     padding: 1em;
   }
+
+  .content h1 {
+    background-color: #033811;
+    border-radius: 0.75em;
+    padding: 1%;
+  }
   
   main {
     flex: 1 calc(100vh - 100px);
