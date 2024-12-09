@@ -49,6 +49,25 @@ export function Fill() {
       result = ItemFill(selectedFiller.volume, selectedFiller.shape, selectedContainer.volume, selectedContainer.shape);
     }
 
+    const updatedFillItems = [...fillItems];
+    const updatedContainerItems = [...containerItems];
+
+    const fillerIndex = updatedFillItems.findIndex(item => item.id === selectedFiller.id);
+    if (fillerIndex !== -1) {
+      updatedFillItems[fillerIndex].used = (updatedFillItems[fillerIndex].used || 0) + 1;
+    }
+
+    const containerIndex = updatedContainerItems.findIndex(item => item.id === selectedContainer.id);
+    if (containerIndex !== -1) {
+      updatedContainerItems[containerIndex].used = (updatedContainerItems[containerIndex].used || 0) + 1;
+    }
+
+    setFillItems(updatedFillItems);
+    setContainerItems(updatedContainerItems);
+
+    const allItems = [...updatedFillItems, ...updatedContainerItems];
+    localStorage.setItem('items', JSON.stringify(allItems));
+
     setCalculatedResult(result);
   };
 
