@@ -35,7 +35,7 @@ Acts as a frame to wrap reusable HTML elements, handles interactions with local 
   - Calculator has basic functionality, it can run calculations for volume-based packing, current bugs, dropdown menus don't display active selection and shape based packing algorithms are unimplemented
   - User generated Items saved locally and are viewed on the user page and accessible on the calculator while logged in (not limited to individual accounts yet)
   - User generated items are tracked for most popular and displayed on User page (only user items until server is established)
-  - Fill events simulated like a websocket some functionality is not yet implemented as in my design it was spread across two different page sets I'd rather move on and possibly finish full functionality than finish the mock-up
+  - Fill events simulated like a websocket for user page
 
 ### Service
 dad jokes
