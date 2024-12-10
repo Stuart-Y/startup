@@ -71,30 +71,6 @@ export function Fill() {
     setCalculatedResult(result);
   };
 
-  // Nested DynamicDropdown component
-  const DynamicDropdown = ({ menuItems, optionText, onChange }) => {
-    const [selectedValue, setSelectedValue] = useState('');
-
-    const handleChange = (event) => {
-      const value = JSON.parse(event.target.value);
-      setSelectedValue(value);
-      onChange(value);
-    };
-
-    return (
-      <div>
-      <select onChange={handleChange} value={selectedValue}>
-        <option value="" disabled>{optionText}</option>
-        {menuItems.map((item) => (
-          <option key={item.id} value={JSON.stringify(item)}>
-            {item.name}
-          </option>
-        ))}
-      </select>
-      </div>
-    );
-  };
-
   return (
     <main className='container-fluid bg-secondary text-center'>
       <div className='fillContent'>
@@ -102,23 +78,29 @@ export function Fill() {
           <h1>Fill X with Y</h1>
         </div>
         <div id="StuffPicker" className="activityBox">
-          <div id="fillPicker" className="chooseItem">
-            <h2> How many </h2>
+          <div id="fillPicker"className='chooseItem'>
+            <h2>How many</h2>
             <img alt="Question Mark" src="QuestionMark.png" className='QMark'></img>
-            <DynamicDropdown
-              menuItems={fillItems}
-              optionText="Select Filler Item"
-              onChange={handleFillerChange}
-            />
+            <select onChange={handleFillerChange} value={selectedFiller}>
+              <option value="" disabled>Select Filler Item</option>
+              {fillItems.map((item) => (
+                <option key={item.id} value={JSON.stringify(item)}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div id="stuffedPicker" className="chooseItem">
             <h2>Can fit in</h2>
             <img alt="Question Mark" src="QuestionMark.png" className='QMark'></img>
-            <DynamicDropdown
-              menuItems={containerItems}
-              optionText="Select Container"
-              onChange={handleContainerChange}
-            />
+            <select onChange={handleContainerChange} value={selectedContainer}>
+              <option value="" disabled>Select Container </option>
+              {containerItems.map((item) => (
+                <option key={item.id} value={JSON.stringify(item)}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
         <div id="answerbox" className="factbox">
