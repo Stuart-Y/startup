@@ -16,17 +16,17 @@ const FillEvent = {
     constructor() {
 
       setInterval(() => {
-        const userName = 'Eich'; // Example user
-        const item = 'Koala';  // Example item
-        const container = 'Skyscraper'; // Example container
-        const number = Math.floor(Math.random() * 10000); // Random number of items
+        const userName = 'Eich'; 
+        const item = 'Koala'; 
+        const container = 'Skyscraper';
+        const number = Math.floor(Math.random() * 10000);
         const fillEvent = {
           item,
           number,
           container,
           user: userName,
         };
-        this.broadcastEvent(userName, fillEvent);  // Broadcast a new event every 5 seconds
+        this.broadcastEvent(userName, fillEvent); 
       }, 5000);
     }
   

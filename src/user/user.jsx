@@ -1,5 +1,6 @@
 import React from 'react';
 import './user.css'
+import { Updates } from './updates';
 
 export function User(props) {
   const [items, getItems] = React.useState([]);
@@ -80,26 +81,6 @@ export function User(props) {
     );
   }
 
-  const latestFillRows = [];
-  if (latestFills.length) {
-    for (const [i, fill] of latestFills.entries()) {
-      latestFillRows.push(
-        <tr key={i}>
-          <td>{fill.item}</td>
-          <td>{fill.number}</td>
-          <td>{fill.container}</td>
-          <td>{fill.user}</td>
-        </tr>
-      );
-    }
-  } else {
-    latestFillRows.push(
-      <tr key="0">
-        <td colSpan="4">No recent fills yet.</td>
-      </tr>
-    );
-  }
-
   return (
     <main className='container-fluid bg-secondary text-center'>
       <div id="userMain">
@@ -111,7 +92,7 @@ export function User(props) {
           {/* Check if favoriteItem is set */}
           {favoriteItem ? (
             <div>
-              <img alt="Favorite Item Picture(will be done in js)" src="QuestionMark.png" />
+              <img alt="Favorite Item Picture(User Image hosting not available)" src="QuestionMark.png" />
               <p>
                 {favoriteItem.name} <br />
                 Weight: {favoriteItem.weight || 'N/A'} <br />
@@ -124,36 +105,23 @@ export function User(props) {
           )}
         </div>
         <div id="UserCustomItems" className="content">
-        <h3>Custom Items</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Volume</th>
-                <th>Shape</th>
-              </tr>
-            </thead>
-            <tbody>
-              {itemRows}
-            </tbody>
-          </table>
+          <h3>Custom Items</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Volume</th>
+                  <th>Shape</th>
+                </tr>
+              </thead>
+              <tbody>
+                {itemRows}
+              </tbody>
+            </table>
         </div>                 
         <div id="LatestFills" className="content">
-        <h3>Latest Fills</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Number</th>
-                <th>Container</th>
-                <th>User</th>
-              </tr>
-            </thead>
-            <tbody>{latestFillRows}</tbody>
-          </table>
-          <p>
-            <em>10 most recent fills are displayed here.</em>
-          </p>
+          <h3>Latest Fills</h3>
+          <Updates userName={props.userName}/>
         </div>
         <div id="JokeBox" className="content">
           <h3>Dad Jokes</h3>
