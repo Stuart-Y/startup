@@ -73,5 +73,11 @@ apiRouter.post('/auth/create', async (req, res) => {
   });
 
   apiRouter.post('/customs/pos', async(req,res) => {
-
+    const user = users[req.body.email];
+    if(user){
+        const item = req.body.item
+        const items = userItems[user]
+        items.append(item)
+        userItems[user] = items
+    }
   });
