@@ -12,14 +12,16 @@ export function Fill() {
   const [calculatedResult, setCalculatedResult] = useState('');
 
   // Dropdown state management for selected values
-  const handleFillerChange = (value) => {
-    setSelectedFiller(value);
-    console.log("Selected Filler:", value);
+  const handleFillerChange = (event) => {
+    const selected = event.target.value
+    setSelectedFiller(selected);
+    console.log("Selected Filler:", selected);
   };
 
-  const handleContainerChange = (value) => {
-    setSelectedContainer(value);
-    console.log("Selected Container:", value);
+  const handleContainerChange = (event) => {
+    const selected = event.target.value
+    setSelectedContainer(selected);
+    console.log("Selected Container:", selected);
   };
 
   const handleFillTypeChange = (event) => {
@@ -42,11 +44,14 @@ export function Fill() {
       return;
     }
 
+    const fill = JSON.parse(selectedFiller)
+    const container = JSON.parse(selectedContainer)
+
     let result = '';
     if (selectedFillType === 'volume') {
-      result = VolumeFill(selectedFiller.volume, selectedContainer.volume);
+      result = VolumeFill(fill.volume, container.volume);
     } else if (selectedFillType === 'shape') {
-      result = ItemFill(selectedFiller.volume, selectedFiller.shape, selectedContainer.volume, selectedContainer.shape);
+      result = ItemFill(fill.volume, fill.shape, container.volume, container.shape);
     }
 
     const updatedFillItems = [...fillItems];
@@ -70,6 +75,8 @@ export function Fill() {
 
     setCalculatedResult(result);
   };
+
+
 
   return (
     <main className='container-fluid bg-secondary text-center'>
