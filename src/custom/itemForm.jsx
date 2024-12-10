@@ -20,11 +20,22 @@ import './itemForm.css'
     });
   }
   
-  async function saveItem(event) {
+  /*async function saveItem(event) {
     event.preventDefault();
     console.log('Form data before saving:', formData);
     updateCustomItemsLocal(formData);
     setFormData(initialFormData);
+  }*/
+
+  async function saveScore(score) {
+    
+
+    await fetch('/api/score', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json'},
+      body: JSON
+    });
+
   }
 
   function updateCustomItemsLocal(newItem) {
