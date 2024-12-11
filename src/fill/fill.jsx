@@ -10,42 +10,6 @@ export function Fill() {
   const [selectedContainer, setSelectedContainer] = useState('');
   const [selectedFillType, setSelectedFillType] = useState('volume');
   const [calculatedResult, setCalculatedResult] = useState('');
-  const [storedItems, setItems] = useState([]);
-
-  React.useEffect(() => {
-    fetch('/api/custom/req')
-      .then((response) => response.json())
-      .then((items) => {
-        setItems(items);
-      })
-      .catch();
-  }, []);
-
-  async function saveItem(item) {
-
-    const newItem = { item: {...item} }
-
-    await fetch('/api/custom/pos', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json'},
-      body: JSON.stringify(newItem),
-    })
-    .catch();
-  }
-
-  async function sendFill() {
-    const fill = {
-      item: selectedFiller,
-      number: calculatedResult,
-      container: selectedContainer,
-      user: props.userName,
-    };
-    await fetch('/api/fills', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(fill),
-    })
-  }
 
   // Dropdown state management for selected values
   const handleFillerChange = (event) => {
@@ -65,10 +29,13 @@ export function Fill() {
   };
 
   useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
     const fillers = storedItems.filter(item => item.type === 'filler');
     const containers = storedItems.filter(item => item.type === 'container');
     setFillItems([...testFill, ...fillers]);
+    console.log(fillItems);
     setContainerItems([...testContainer, ...containers]);
+    console.log(containerItems);
   }, []);
 
   const handleCalculate = () => {
@@ -100,8 +67,11 @@ export function Fill() {
       updatedContainerItems[containerIndex].used = (updatedContainerItems[containerIndex].used || 0) + 1;
     }
 
-    saveItem(updatedFillItems[fillerIndex]);
-    saveItem(updatedContainerItems[containerIndex]);
+    setFillItems(updatedFillItems);
+    setContainerItems(updatedContainerItems);
+
+    const allItems = [...updatedFillItems, ...updatedContainerItems];
+    localStorage.setItem('items', JSON.stringify(allItems));
 
     setCalculatedResult(result);
   };

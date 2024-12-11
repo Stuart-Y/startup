@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {FillNotifier } from './informer';
+import { FillEvent, FillNotifier } from './informer';
 
 
 export function Updates(props){
@@ -19,7 +19,7 @@ export function Updates(props){
   function handleFillEvent(event) {
       let newEvents = [event, ...events];
       if (newEvents.length > 10) {
-        newEvents = newEvents.slice(1, 8);
+        newEvents = newEvents.slice(1, 10);
       }
       setEvent(newEvents);
   }
@@ -43,6 +43,8 @@ export function Updates(props){
 
     return (
         <div className='players'>
+          Player
+          <span className='player-name'>{userName}</span>
           <div id='player-messages'>{createMessageArray()}</div>
         </div>
       );

@@ -20,26 +20,14 @@ import './itemForm.css'
     });
   }
   
-  /*async function saveItem(event) {
+  async function saveItem(event) {
     event.preventDefault();
     console.log('Form data before saving:', formData);
     updateCustomItemsLocal(formData);
     setFormData(initialFormData);
-  }*/
-
-  async function saveItem() {
-    console.log(...formData)
-    const newItem = { item: {...formData} }
-
-    await fetch('/api/custom/pos', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json'},
-      body: JSON.stringify(newItem),
-    })
-    .catch();
   }
 
-  /*function updateCustomItemsLocal(newItem) {
+  function updateCustomItemsLocal(newItem) {
     let items = [];
     const itemsJson = localStorage.getItem('items');
     if (itemsJson) {
@@ -47,7 +35,7 @@ import './itemForm.css'
     }
     items.push(newItem)
     localStorage.setItem('items', JSON.stringify(items))
-  }*/
+  }
 
   return (
     <form onSubmit={saveItem} className='customForm'>

@@ -7,7 +7,7 @@ let users = {};
 let scores = [];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
@@ -54,45 +54,54 @@ apiRouter.delete('/auth/logout', (req, res) => {
   res.status(204).end();
 });
 
-  apiRouter.get('/fills', (_req, res) => {
-    res.send(fills);
-  });
+apiRouter.get('/fills', (_req, res) => {
+  res.send(fills);
+});
 
-  apiRouter.post('/fills', (req, res) => {
-    fills = updateFills(req.body, fills);
-    res.send(fills);
-  });
+apiRouter.post('/fills', (req, res) => {
+  fills = updateFills(req.body, fills);
+  res.send(fills);
+});
 
-  function updateFills(newFill, fills) {
-    fills.push(newFill)
-    let found = false;
+function updateFills(newFill, fills) {
+  fills.push(newFill)
+  let found = false;
   
-    if (fills.length > 10) {
-      fills.length = 10;
-    }
-  
-    return fills;
+  if (fills.length > 10) {
+    fills.length = 10;
   }
+  
+  return fills;
+}
 
-  apiRouter.get('/custom/req', async (req, res) => {
-    const user = users[req.body.email];
-    if(user) {
-        res.send({...userItems[user]});
-        return;
-    }
-    res.status(401).send({ msg: 'Unauthorized' });
-  });
+apiRouter.get('/custom/req', async (req, res) => {
+  const user = users[req.body.email];
+  if(user) {
+    res.send({...userItems[user]});
+    return;
+  }
+  res.status(401).send({ msg: 'Unauthorized' });
+});
 
-  apiRouter.post('/customs/pos', async(req,res) => {
-    const user = users[req.body.email];
-    if(user){
-        const item = req.body.item
-        const items = userItems[user]
-        if(items.find((x) => x == item) != -1) {
-          pos = items.find((x) => x == item)
-          items[pos] = item
-        }
-        items.push(item)
-        userItems[user] = items
-    }
-  });
+apiRouter.post('/customs/pos', async(req,res) => {
+  const user = users[req.body.email];
+  if(user){
+      const item = req.body.item
+      const items = userItems[user]
+      if(items.find((x) => x == item) != -1) {
+        pos = items.find((x) => x == item)
+        items[pos] = item
+      }
+      items.push(item)
+      userItems[user] = items
+  }
+});
+
+// Return the application's default page if the path is unknown
+app.use((_req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
