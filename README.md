@@ -39,6 +39,7 @@ Acts as a frame to wrap reusable HTML elements, handles interactions with local 
 
 ### Service
 dad jokes
+local server handles custom items and login endpoints
 ### DB/Login
 user credentials and custom object and previous calculations
 
@@ -54,3 +55,13 @@ Established layouts for object selection, content pages and user information
 Selected readable, interesting fonts
 Established color scheme
 
+## Phase 3: React
+Retool HTML to single page React webpage
+Handle Authentication states and middleware redirects
+attach hooks for service endpoints
+mock up long term data storage with local storage
+
+## Phase 4: Services
+adapt custom item form to send to service endpoint
+adapt calculator to request custom items from server
+attach user pge to grab favorite item, custom items and dad jokes from services
