@@ -27,18 +27,19 @@ import './itemForm.css'
     setFormData(initialFormData);
   }*/
 
-  async function saveScore(score) {
-    
+  async function saveItem() {
+    console.log(...formData)
+    const newItem = { item: {...formData} }
 
-    await fetch('/api/score', {
+    await fetch('/api/custom/pos', {
       method: 'POST',
       headers: { 'content-type': 'application/json'},
-      body: JSON
-    });
-
+      body: JSON.stringify(newItem),
+    })
+    .catch();
   }
 
-  function updateCustomItemsLocal(newItem) {
+  /*function updateCustomItemsLocal(newItem) {
     let items = [];
     const itemsJson = localStorage.getItem('items');
     if (itemsJson) {
@@ -46,7 +47,7 @@ import './itemForm.css'
     }
     items.push(newItem)
     localStorage.setItem('items', JSON.stringify(items))
-  }
+  }*/
 
   return (
     <form onSubmit={saveItem} className='customForm'>

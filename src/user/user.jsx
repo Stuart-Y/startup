@@ -3,7 +3,7 @@ import './user.css'
 import { Updates } from './updates';
 
 export function User(props) {
-  const [items, getItems] = React.useState([]);
+  const [items, getItems, setItems] = React.useState([]);
   const [favoriteItem, setFavoriteItem] = React.useState(null);
   const [joke, setJoke] = React.useState("Loading joke...");
   const [latestFills, setLatestFills] = React.useState([]);
@@ -23,7 +23,21 @@ export function User(props) {
   }, []);
 
   React.useEffect(() => {
-    setJoke("What hppens to a Gungan in a sandstorm... Jar Jar Blinks")
+    fetch('https://official-joke-api.appspot.com/random_joke')
+    .then((response) => response.json())
+    .then((data) => {
+      setJoke(data.setup + data.punchline);
+    })
+    .catch();
+  }, []);
+
+  React.useEffect(() => {
+    fetch('/api/custom/req')
+      .then((response) => response.json())
+      .then((items) => {
+        setItems(items);
+      })
+      .catch();
   }, []);
 
   /*React.useEffect(() => {
