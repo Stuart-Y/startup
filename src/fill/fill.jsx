@@ -13,20 +13,15 @@ export function Fill(props) {
   const [storedItems, setItems] = useState([]);
 
   React.useEffect(() => {
-    fetch(`/api/customs/req?user=${encodeURIComponent(props.username)}`, {
+    fetch('/api/customs/req', {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
+        'content-Type': 'application/json'
       }
     })   
       .then((response) => response.json())
       .then((data) => {
-        setItems(data.items);
-        const highestUsedItem = itemArray.reduce((prev, current) => {
-          return (prev.used > current.used) ? prev : current;
-        }, {});
-  
-        setFavoriteItem(highestUsedItem);
+        setItems(data);
       })
       .catch();
   }, []);

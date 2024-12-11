@@ -7,7 +7,6 @@ import './itemForm.css'
       name: '',
       volume: '',
       shape: '',
-      used: 0
     };
 
     const [formData, setFormData] = useState(initialFormData);
@@ -28,21 +27,19 @@ import './itemForm.css'
   }*/
 
     async function saveItem(event) {
-      event.preventDefault();
   
-      const newItem = { item: { ...formData }, user: props.userName };
-  
-      try {
-        await fetch('/api/customs/pos', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newItem),
-        });
-        setFormData(initialFormData);
-      } catch (error) {
-        console.error('Error saving item:', error);
-        alert('There was an error saving the item. Please try again.');
-      }
+      const newItem = {
+        type: formData.type,
+        name: formData.name,
+        volume: formData.volume,
+        shape: formData.shape,
+        used: 0 };  
+      await fetch('/api/customs/pos', {
+        method: 'POST',
+        headers: { 'content-Type': 'application/json' },
+        body: JSON.stringify(newItem),
+      });
+      //setFormData(initialFormData);      
     }
 
   /*function updateCustomItemsLocal(newItem) {

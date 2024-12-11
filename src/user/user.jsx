@@ -18,6 +18,7 @@ export function User(props) {
   }, []);
 
   React.useEffect(() => {
+    setItems([]);
     fetch(`/api/customs/req?user=${encodeURIComponent(props.username)}`, {
       method: 'GET',
       headers: {
@@ -67,6 +68,7 @@ export function User(props) {
   }, []);*/
 
   const itemRows = [];
+  if (typeof itemArray !== 'undefined'){
   if (itemArray.length) {
     for (const [i, item] of itemArray.entries()) {
       itemRows.push(
@@ -90,6 +92,7 @@ export function User(props) {
       </tr>
     );
   }
+}
 
   return (
     <main className='container-fluid bg-secondary text-center'>

@@ -4,7 +4,7 @@ const app = express();
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = {};
-let userItems = {};
+let userItems = [];
 let fills = []
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -66,7 +66,6 @@ apiRouter.post('/fills', (req, res) => {
 
 function updateFills(newFill, fills) {
   fills.push(newFill)
-  let found = false;
   
   if (fills.length > 10) {
     fills.length = 10;
@@ -75,22 +74,20 @@ function updateFills(newFill, fills) {
   return fills;
 }
 
-apiRouter.get('/customs/req', async (req, res) => {
-  const user = users[req.query.user];
+apiRouter.get('/customs/req', async (_req, res) => {
+  /*const user = users[req.query.user];
     const items = userItems[user];
     if (items) {
       res.send({items: items});
       return;
     }
-    res.send({items: {}})
+    res.send({items: {}})*/
+  res.send(userItems);  
 });
 
 apiRouter.post('/customs/pos', async(req,res) => {
-  const user = users[req.body.user];
+  /*const user = users[req.body.user];
       const item = req.body.item
-      if (!user || !item) {
-        return res.status(400).send({ msg: 'Bad Request: Missing user or item' });
-      }
       const items = userItems[user] || [];
       const pos = items.findIndex((x) => x === item);
       if(pos !== -1) {
@@ -100,7 +97,15 @@ apiRouter.post('/customs/pos', async(req,res) => {
       items.push(item)
       }
       userItems[user] = items
+      console.log(userItems)*/
+      userItems = updateItems(req.body.item, userItems);
+      res.send(userItems)
   });
+
+function updateItems(newItem, userItems){
+  userItems.push(newItem)
+  return userItems
+}  
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
