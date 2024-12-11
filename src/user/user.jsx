@@ -3,27 +3,37 @@ import './user.css'
 import { Updates } from './updates';
 
 export function User(props) {
-  const [items, getItems] = React.useState([]);
+  const [itemArray, setItems] = React.useState([]);
   const [favoriteItem, setFavoriteItem] = React.useState(null);
   const [joke, setJoke] = React.useState("Loading joke...");
   const [latestFills, setLatestFills] = React.useState([]);
 
   React.useEffect(() => {
-    const itemsJson = localStorage.getItem('items');
-    if (itemsJson) {
-      const itemsArray = JSON.parse(itemsJson);
-      getItems(itemsArray);
-
-      const highestUsedItem = itemsArray.reduce((prev, current) => {
-        return (prev.used > current.used) ? prev : current;
-      }, {});
-
-      setFavoriteItem(highestUsedItem);
-    }
+    fetch('https://official-joke-api.appspot.com/random_joke')
+    .then((response) => response.json())
+    .then((data) => {
+      setJoke(data.setup + data.punchline);
+    })
+    .catch();
   }, []);
 
   React.useEffect(() => {
-    setJoke("What hppens to a Gungan in a sandstorm... Jar Jar Blinks")
+    fetch(`/api/customs/req?user=${encodeURIComponent(props.username)}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })   
+      .then((response) => response.json())
+      .then((data) => {
+        setItems(data.items);
+        const highestUsedItem = itemArray.reduce((prev, current) => {
+          return (prev.used > current.used) ? prev : current;
+        }, {});
+  
+        setFavoriteItem(highestUsedItem);
+      })
+      .catch();
   }, []);
 
   /*React.useEffect(() => {
@@ -57,8 +67,8 @@ export function User(props) {
   }, []);*/
 
   const itemRows = [];
-  if (items.length) {
-    for (const [i, item] of items.entries()) {
+  if (itemArray.length) {
+    for (const [i, item] of itemArray.entries()) {
       itemRows.push(
         <tr key={i}>
           <td>{item.name}</td>
@@ -105,7 +115,7 @@ export function User(props) {
           )}
         </div>
         <div id="UserCustomItems" className="content">
-          <h3>Your Used Items</h3>
+          <h3>Custom Items</h3>
             <table>
               <thead>
                 <tr>

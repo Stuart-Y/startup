@@ -4,7 +4,8 @@ const app = express();
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
 let users = {};
-let scores = [];
+let userItems = {};
+let fills = []
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -74,28 +75,32 @@ function updateFills(newFill, fills) {
   return fills;
 }
 
-apiRouter.get('/custom/req', async (req, res) => {
-  const user = users[req.body.email];
-  if(user) {
-    res.send({...userItems[user]});
-    return;
-  }
-  res.status(401).send({ msg: 'Unauthorized' });
+apiRouter.get('/customs/req', async (req, res) => {
+  const user = users[req.query.user];
+    const items = userItems[user];
+    if (items) {
+      res.send({items: items});
+      return;
+    }
+    res.send({items: {}})
 });
 
 apiRouter.post('/customs/pos', async(req,res) => {
-  const user = users[req.body.email];
-  if(user){
+  const user = users[req.body.user];
       const item = req.body.item
-      const items = userItems[user]
-      if(items.find((x) => x == item) != -1) {
-        pos = items.find((x) => x == item)
-        items[pos] = item
+      if (!user || !item) {
+        return res.status(400).send({ msg: 'Bad Request: Missing user or item' });
       }
+      const items = userItems[user] || [];
+      const pos = items.findIndex((x) => x === item);
+      if(pos !== -1) {
+        pos = items.find((x) => x === item)
+        items[pos] = item;
+      } else {
       items.push(item)
+      }
       userItems[user] = items
-  }
-});
+  });
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {

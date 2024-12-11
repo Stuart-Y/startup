@@ -71,7 +71,9 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Fill userName={userName} authState={authState}/>} exact />
           <Route path='/bio' element={<Bio />} />
-          <Route path='/custom' element={<ProtectedRoute><Custom /></ProtectedRoute>} />
+          <Route path='/custom' element={<ProtectedRoute>
+            <Custom userName={userName}/>
+            </ProtectedRoute>} />
           <Route path='/login' element={<Login 
             userName={userName}
             authState={authState}

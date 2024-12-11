@@ -3,13 +3,59 @@ import './fill.css';
 import { VolumeFill, ItemFill } from './fillMath';
 import { testFill, testContainer } from './tempTables';
 
-export function Fill() {
+export function Fill(props) {
   const [fillItems, setFillItems] = useState([]);
   const [containerItems, setContainerItems] = useState([]);
   const [selectedFiller, setSelectedFiller] = useState('');
   const [selectedContainer, setSelectedContainer] = useState('');
   const [selectedFillType, setSelectedFillType] = useState('volume');
   const [calculatedResult, setCalculatedResult] = useState('');
+  const [storedItems, setItems] = useState([]);
+
+  React.useEffect(() => {
+    fetch(`/api/customs/req?user=${encodeURIComponent(props.username)}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })   
+      .then((response) => response.json())
+      .then((data) => {
+        setItems(data.items);
+        const highestUsedItem = itemArray.reduce((prev, current) => {
+          return (prev.used > current.used) ? prev : current;
+        }, {});
+  
+        setFavoriteItem(highestUsedItem);
+      })
+      .catch();
+  }, []);
+
+  async function saveItem(item) {
+
+    const newItem = { item: {...item}, user: props.userName }
+
+    await fetch('/api/customs/pos', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json'},
+      body: JSON.stringify(newItem),
+    })
+    .catch();
+  }
+
+  async function sendFill() {
+    const fill = {
+      item: selectedFiller,
+      number: calculatedResult,
+      container: selectedContainer,
+      user: props.userName,
+    };
+    await fetch('/api/fills', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(fill),
+    })
+  }
 
   // Dropdown state management for selected values
   const handleFillerChange = (event) => {
@@ -29,13 +75,10 @@ export function Fill() {
   };
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem('items')) || [];
     const fillers = storedItems.filter(item => item.type === 'filler');
     const containers = storedItems.filter(item => item.type === 'container');
     setFillItems([...testFill, ...fillers]);
-    console.log(fillItems);
     setContainerItems([...testContainer, ...containers]);
-    console.log(containerItems);
   }, []);
 
   const handleCalculate = () => {
@@ -67,11 +110,8 @@ export function Fill() {
       updatedContainerItems[containerIndex].used = (updatedContainerItems[containerIndex].used || 0) + 1;
     }
 
-    setFillItems(updatedFillItems);
-    setContainerItems(updatedContainerItems);
-
-    const allItems = [...updatedFillItems, ...updatedContainerItems];
-    localStorage.setItem('items', JSON.stringify(allItems));
+    saveItem(updatedFillItems[fillerIndex]);
+    saveItem(updatedContainerItems[containerIndex]);
 
     setCalculatedResult(result);
   };

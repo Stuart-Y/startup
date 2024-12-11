@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './itemForm.css'
 
-  function ItemForm() {
+  function ItemForm(props) {
     const initialFormData = {
       type: '',
       name: '',
@@ -20,14 +20,32 @@ import './itemForm.css'
     });
   }
   
-  async function saveItem(event) {
+  /*async function saveItem(event) {
     event.preventDefault();
     console.log('Form data before saving:', formData);
     updateCustomItemsLocal(formData);
     setFormData(initialFormData);
-  }
+  }*/
 
-  function updateCustomItemsLocal(newItem) {
+    async function saveItem(event) {
+      event.preventDefault();
+  
+      const newItem = { item: { ...formData }, user: props.userName };
+  
+      try {
+        await fetch('/api/customs/pos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newItem),
+        });
+        setFormData(initialFormData);
+      } catch (error) {
+        console.error('Error saving item:', error);
+        alert('There was an error saving the item. Please try again.');
+      }
+    }
+
+  /*function updateCustomItemsLocal(newItem) {
     let items = [];
     const itemsJson = localStorage.getItem('items');
     if (itemsJson) {
@@ -35,7 +53,7 @@ import './itemForm.css'
     }
     items.push(newItem)
     localStorage.setItem('items', JSON.stringify(items))
-  }
+  }*/
 
   return (
     <form onSubmit={saveItem} className='customForm'>
