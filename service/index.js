@@ -22,11 +22,13 @@ app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
+  
   const user = users[req.body.email];
   if (user) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
     const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
+    console.log(user)
     users[user.email] = user;
 
     res.send({ token: user.token });
@@ -74,7 +76,7 @@ function updateFills(newFill, fills) {
   return fills;
 }
 
-apiRouter.get('/customs/req', async (_req, res) => {
+apiRouter.get('/customs', async (_req, res) => {
   /*const user = users[req.query.user];
     const items = userItems[user];
     if (items) {
@@ -82,10 +84,11 @@ apiRouter.get('/customs/req', async (_req, res) => {
       return;
     }
     res.send({items: {}})*/
+  console.log(userItems)
   res.send(userItems);  
 });
 
-apiRouter.post('/customs/pos', async(req,res) => {
+apiRouter.post('/custom', (req,res) => {
   /*const user = users[req.body.user];
       const item = req.body.item
       const items = userItems[user] || [];
@@ -98,12 +101,16 @@ apiRouter.post('/customs/pos', async(req,res) => {
       }
       userItems[user] = items
       console.log(userItems)*/
-      userItems = updateItems(req.body.item, userItems);
+      console.log(req.body)
+      console.log(userItems)
+      userItems.push(req.body)
+      console.log(userItems)
       res.send(userItems)
   });
 
 function updateItems(newItem, userItems){
   userItems.push(newItem)
+  console.log(userItems)
   return userItems
 }  
 

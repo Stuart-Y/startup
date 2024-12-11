@@ -12,29 +12,37 @@ export function User(props) {
     fetch('https://official-joke-api.appspot.com/random_joke')
     .then((response) => response.json())
     .then((data) => {
-      setJoke(data.setup + data.punchline);
+      setJoke(data.setup + ' ' + data.punchline);
     })
     .catch();
   }, []);
 
   React.useEffect(() => {
     setItems([]);
-    fetch(`/api/customs/req?user=${encodeURIComponent(props.username)}`, {
+    fetch('/api/customs', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }
     })   
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // This will fail if the server returns HTML
+      })
       .then((data) => {
-        setItems(data.items);
-        const highestUsedItem = itemArray.reduce((prev, current) => {
+        setItems(data);
+  
+        const highestUsedItem = data.reduce((prev, current) => {
           return (prev.used > current.used) ? prev : current;
         }, {});
   
         setFavoriteItem(highestUsedItem);
       })
-      .catch();
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
   }, []);
 
   /*React.useEffect(() => {

@@ -74,14 +74,14 @@ export default function App() {
           <Route path='/custom' element={<ProtectedRoute>
             <Custom userName={userName}/>
             </ProtectedRoute>} />
-          <Route path='/login' element={<Login 
-            userName={userName}
-            authState={authState}
-            onAuthChange={(userName,authState) => {
-              setAuthState(authState);
-              setUserName(userName);
-            }}
-            />} 
+          <Route path='/login' element={<Login
+                userName={userName}
+                authState={authState}
+                onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUserName(userName);
+                }}
+              />} 
           />
           <Route 
             path='/user' 

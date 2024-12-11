@@ -13,24 +13,39 @@ export function Fill(props) {
   const [storedItems, setItems] = useState([]);
 
   React.useEffect(() => {
-    fetch('/api/customs/req', {
+    fetch('/api/customs', {
       method: 'GET',
       headers: {
-        'content-Type': 'application/json'
-      }
-    })   
-      .then((response) => response.json())
-      .then((data) => {
-        setItems(data);
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // This will fail if the server returns HTML
       })
-      .catch();
-  }, []);
+      .then((data) => {
+        setItems(data);  // Set the items data
+  
+        // Filter fillers and containers from the fetched data
+        const fillers = data.filter((item) => item.type === 'filler');
+        const containers = data.filter((item) => item.type === 'container');
+  
+        // Merge with the test data
+        setFillItems([...testFill, ...fillers]);
+        setContainerItems([...testContainer, ...containers]);
+      })
+      .catch((error) => {
+        console.error('Error fetching customs data:', error);
+      });
+  }, []);  // Empty dependency array, so this effect runs only once on component mount
 
   async function saveItem(item) {
 
     const newItem = { item: {...item}, user: props.userName }
 
-    await fetch('/api/customs/pos', {
+    await fetch('/api/custom', {
       method: 'POST',
       headers: { 'content-type': 'application/json'},
       body: JSON.stringify(newItem),
@@ -68,13 +83,6 @@ export function Fill(props) {
   const handleFillTypeChange = (event) => {
     setSelectedFillType(event.target.value);
   };
-
-  useEffect(() => {
-    const fillers = storedItems.filter(item => item.type === 'filler');
-    const containers = storedItems.filter(item => item.type === 'container');
-    setFillItems([...testFill, ...fillers]);
-    setContainerItems([...testContainer, ...containers]);
-  }, []);
 
   const handleCalculate = () => {
     if (!selectedFiller || !selectedContainer) {

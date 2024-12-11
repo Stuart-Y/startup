@@ -34,7 +34,7 @@ import './itemForm.css'
         volume: formData.volume,
         shape: formData.shape,
         used: 0 };  
-      await fetch('/api/customs/pos', {
+      await fetch('/api/custom', {
         method: 'POST',
         headers: { 'content-Type': 'application/json' },
         body: JSON.stringify(newItem),
