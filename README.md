@@ -18,9 +18,7 @@ Here logged in users can create their own items to fill with things or to be put
 Why? 
 ![why](https://github.com/Stuart-Y/startup/blob/main/Why%20Page_page-0001.jpg)
 
-### Internet Proofing
-If certain blacklisted objects are created in the custom object field users are sent to this page explaining why such things are not permittedd on my site
-![warning page doodle](https://github.com/Stuart-Y/startup/blob/main/I%20Wish%20I%20didn't%20need%20this%20page.jpg)
+### Internet Proofing (beyond current scope)
 
 ## Stack Description
 ### HTML
@@ -39,6 +37,7 @@ Acts as a frame to wrap reusable HTML elements, handles interactions with local 
 
 ### Service
 dad jokes
+local server handles custom items and login endpoints
 ### DB/Login
 user credentials and custom object and previous calculations
 
@@ -54,3 +53,15 @@ Established layouts for object selection, content pages and user information
 Selected readable, interesting fonts
 Established color scheme
 
+## Phase 3: React
+Retool HTML to single page React webpage
+Handle Authentication states and middleware redirects
+attach hooks for service endpoints
+mock up long term data storage with local storage
+
+## Phase 4: Services
+created local service to handle most data
+adapt custom item form to send to local 
+adapt calculator to request custom items from server
+attach user pge to grab favorite item and used items from local service
+added dad joke service to user page
