@@ -18,9 +18,7 @@ Here logged in users can create their own items to fill with things or to be put
 Why? 
 ![why](https://github.com/Stuart-Y/startup/blob/main/Why%20Page_page-0001.jpg)
 
-### Internet Proofing
-If certain blacklisted objects are created in the custom object field users are sent to this page explaining why such things are not permittedd on my site
-![warning page doodle](https://github.com/Stuart-Y/startup/blob/main/I%20Wish%20I%20didn't%20need%20this%20page.jpg)
+### Internet Proofing (beyond current scope)
 
 ## Stack Description
 ### HTML
