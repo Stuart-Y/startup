@@ -62,6 +62,8 @@ attach hooks for service endpoints
 mock up long term data storage with local storage
 
 ## Phase 4: Services
-adapt custom item form to send to service endpoint
+created local service to handle most data
+adapt custom item form to send to local 
 adapt calculator to request custom items from server
-attach user pge to grab favorite item, custom items and dad jokes from services
+attach user pge to grab favorite item and used items from local service
+added dad joke service to user page
