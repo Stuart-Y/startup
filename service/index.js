@@ -118,8 +118,13 @@ secureApiRouter.post('/custom', async (req,res) => {
       }
       userItems[user] = items
       console.log(userItems)*/
+      const userItems = await DB.getItems();
+      if(userItems.find(item => item.name === req.body.name) ){
+        pos = userItems.findIndex(item => item.name === req.body.name)
+        await DB.removeItemByName(userItems[pos].name)
+      }
       await DB.addItem(req.body)
-      const userItems = await DB.getItems(); 
+      userItems = await DB.getItems(); 
       res.send(userItems)
   });
 

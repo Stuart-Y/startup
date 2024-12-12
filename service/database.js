@@ -48,10 +48,15 @@ const fillCollection = db.collection('fill');
     return itemCollection.find().toArray()
   }
 
+  function removeItemByName(name) {
+    itemCollection.remove({name:name})
+  }
+
   module.exports = {
     getUser,
     getUserByToken,
     createUser,
     addItem,
     getItems,
+    removeItemByName,
   }
