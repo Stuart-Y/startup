@@ -6,7 +6,7 @@ const DB = require('./database.js');
 
 const authCookieName = 'token';
 
-// The scores and users are saved in memory and disappear whenever the service is restarted.
+//fills is unimplemented until websocket phase
 let fills = []
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -23,7 +23,7 @@ app.use(express.static('public'));
 app.set('trust proxy', true);
 
 // Router for service endpoints
-var apiRouter = express.Router();
+const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
