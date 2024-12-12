@@ -36,8 +36,8 @@ Acts as a frame to wrap reusable HTML elements, handles interactions with local 
   - Fill events simulated like a websocket for user page
 
 ### Service
-dad jokes
-local server handles custom items and login endpoints
+-dad jokes
+-local server handles custom items and login endpoints rather than local storage
 ### DB/Login
 user credentials and custom object and previous calculations
 
@@ -60,8 +60,8 @@ attach hooks for service endpoints
 mock up long term data storage with local storage
 
 ## Phase 4: Services
-created local service to handle most data
-adapt custom item form to send to local 
-adapt calculator to request custom items from server
-attach user pge to grab favorite item and used items from local service
-added dad joke service to user page
+- created local service to handle most data
+- adapted custom item form to send to local 
+- adapt calculator to request custom items from server
+- attach user pge to grab favorite item and used items from local service
+- added dad joke service to user page
