@@ -4,7 +4,7 @@ import './warning.css';
 export function Warning() {
   return (
     <main className='container-fluid bg-secondary text-center'>
-        <div id="WarningMain" class="content">
+        <div id="WarningMain" className="content">
           <h1>I Wish I Didn't Need This Page</h1>
             <br/>
             <p>

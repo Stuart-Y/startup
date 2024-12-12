@@ -12,7 +12,7 @@ import { Warning } from './warning/warning';
 import { Why } from './why/why';
 import { AuthState } from './login/authState';
 
-export default function App() {
+function App() {
 
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
@@ -24,6 +24,10 @@ export default function App() {
     }
     return children;
   };
+
+  function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+  }
 
   return (
     <BrowserRouter>
@@ -39,16 +43,20 @@ export default function App() {
                   Calculator
                 </NavLink>
               </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to='custom'>
-                  Custom
-                </NavLink>
-              </li>
-              <li className='nav-item'>
-                <NavLink className='nav-link' to='user'>
-                  User
-                </NavLink>
-              </li>
+              {authState === AuthState.Authenticated && (
+                <li className='nav-item'>
+                  <NavLink className='nav-link' to='custom'>
+                    Custom
+                  </NavLink>
+                </li>
+              )}
+              {authState === AuthState.Authenticated && (
+                <li className='nav-item'>
+                  <NavLink className='nav-link' to='user'>
+                    User
+                  </NavLink>
+                </li>
+              )}
               <li className='nav-item'>
                 <NavLink className='nav-link' to='bio'>
                   Bio
@@ -71,17 +79,15 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Fill userName={userName} authState={authState}/>} exact />
           <Route path='/bio' element={<Bio />} />
-          <Route path='/custom' element={<ProtectedRoute>
-            <Custom userName={userName}/>
-            </ProtectedRoute>} />
-          <Route path='/login' element={<Login
-                userName={userName}
-                authState={authState}
-                onAuthChange={(userName, authState) => {
-                  setAuthState(authState);
-                  setUserName(userName);
-                }}
-              />} 
+          <Route path='/custom' element={<ProtectedRoute><Custom /></ProtectedRoute>} />
+          <Route path='/login' element={<Login 
+            userName={userName}
+            authState={authState}
+            onAuthChange={(userName,authState) => {
+              setAuthState(authState);
+              setUserName(userName);
+            }}
+            />} 
           />
           <Route 
             path='/user' 
@@ -93,11 +99,12 @@ export default function App() {
             />
           <Route path='/warning' element={<Warning />} />
           <Route path='/why' element={<Why />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
 
         <footer className='bg-dark text-white-50 fixed-bottom'>
           <div className='container-fluid'>
-            <span className='foot-text'>Storge</span>
+            <span className='foot-text'>Stuart "Storge" Yorgason</span>
             <a className='text-reset foot-text' href='https://github.com/Stuart-Y/startup'>
               Github
             </a>
@@ -107,3 +114,5 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+export default App;
