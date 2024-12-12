@@ -27,3 +27,18 @@ bootstrap import statement
 border-radius: makes nice beveled edges
 
 <ed> new line command within elements
+
+react and vite:
+
+basic index.html included here wil work with most things but change the metadata for the site
+
+index.jsx should also work with most things, it acts as the root for the app component
+
+the app component handles routing to any existing pages
+
+individual pages have html and basic scripting combined into .jsx files, subcomponents of pages can have their own files as well
+.css files are usually still included 
+for raw code, the occasional .js file is handy to keep complicated operations away from complicated rendering
+
+
+components on every page go into app.jsx and are styled with app.css
