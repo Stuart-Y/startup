@@ -39,6 +39,8 @@ the app component handles routing to any existing pages
 individual pages have html and basic scripting combined into .jsx files, subcomponents of pages can have their own files as well
 .css files are usually still included 
 
+Web Services
+
 services are easy to deploy capsules of server functionality allowing for server-side storage that can be distributedd to multiple users
 
 services each need their wn configuration settings to run properly
@@ -50,3 +52,11 @@ for raw code, the occasional .js file is handy to keep complicated operations aw
 
 
 components on every page go into app.jsx and are styled with app.css
+
+Login
+
+## when the service needs the dependency run npm in the service not root!
+
+mongoDB does not appreciate the remove command, use deleteOne or deleteMany instead
+
+502 errors are almost always due to mising dependencies, except when you forgot to turn on the listener for the port
