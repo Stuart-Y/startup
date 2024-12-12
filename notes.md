@@ -38,6 +38,14 @@ the app component handles routing to any existing pages
 
 individual pages have html and basic scripting combined into .jsx files, subcomponents of pages can have their own files as well
 .css files are usually still included 
+
+services are easy to deploy capsules of server functionality allowing for server-side storage that can be distributedd to multiple users
+
+services each need their wn configuration settings to run properly
+
+if at all possible make your port number an environment variable
+
+## Run npm init on the service you fool!
 for raw code, the occasional .js file is handy to keep complicated operations away from complicated rendering
 
 
