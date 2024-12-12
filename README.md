@@ -28,11 +28,11 @@ fonts and some fonts and some dynamic styling
 ### Javscript
 Login, calculations for how many things fit, dynamic lists of other users activities and user data
 ### React
-Acts as a frame to wrap reusable HTML elements, handles interactions with local storage and sends out websocket events, acts as middleware as well
-  - Custom and User pages are only accessible while authenticated
-  - Calculator has basic functionality, it can run calculations for volume-based packing, current bugs, dropdown menus don't display active selection and shape based packing algorithms are unimplemented
-  - User generated Items saved locally and are viewed on the user page and accessible on the calculator while logged in (not limited to individual accounts yet)
-  - User generated items are tracked for most popular and displayed on User page (only user items until server is established)
+Acts as a frame to wrap reusable HTML elements, handles interactions with local storage and sends out mock websocket events, acts as middleware as well
+  - Custom and User pages are only accessible  and visible while authenticated
+  - Calculator has basic functionality, it can run calculations for volume-based packing, current bugs, dropdown menus sometimes decide to usee the first element rather than the selected element active shape based packing algorithms are unimplemented
+  - User generated Items saved locally and are viewed on the user page and accessible on the calculator
+  - User generated items are tracked for most popular and displayed on User page 
   - Fill events simulated like a websocket for user page
 
 ### Service
