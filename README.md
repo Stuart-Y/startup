@@ -39,7 +39,11 @@ Acts as a frame to wrap reusable HTML elements, handles interactions with local 
 -dad jokes
 -local server handles custom items and login endpoints rather than local storage
 ### DB/Login
-user credentials and custom object and previous calculations
+-user credential encrypted and tracked in MongoDB
+-custom items trcked as well
+- items are not currently restriceted to those created by one user (future update)
+- items are accesed by Calculator and User page
+- favorite Item borked by shared database :(
 
 ## Phase 1: HTML
 Wrote HTML code
@@ -65,3 +69,10 @@ mock up long term data storage with local storage
 - adapt calculator to request custom items from server
 - attach user pge to grab favorite item and used items from local service
 - added dad joke service to user page
+
+## Phase 5: Login
+- connected local service to MongoDB for peristence
+- adapted endpoints to db compatibility
+- fixed long running poor design on Custom page
+- added 404 errors
+- fixed play button to direct somewhere useful
