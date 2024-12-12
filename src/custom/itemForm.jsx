@@ -80,7 +80,7 @@ import './itemForm.css'
           <label htmlFor="name">Item Name:</label>
           <input
             type="text"
-            id="name"
+            id="nameBox"
             name="name"
             value={formData.name}
             onChange={fieldChange}

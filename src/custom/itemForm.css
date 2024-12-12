@@ -9,20 +9,20 @@ form > *{
     margin: 0.5em;
 }
 
-#name {
-    background-color: #39403a;
+#nameBox {
+    background-color: white;
     border-radius: 2em;
     border: 1em;
 }
 
 #volume {
-    background-color: #39403a;
+    background-color: white;
     border-radius: 2em;
     border: 1em;
 }
 
 #shape {
-    background-color: #39403a;
+    background-color: white;
     border-radius: 2em;
     border: 1em;
     margin: 1em;
@@ -31,8 +31,4 @@ form > *{
 #submit {
     border: 1em;
     margin: 1em;
-}
-
-#shape option{
-    color: white;
 }
