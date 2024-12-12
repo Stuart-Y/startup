@@ -51,7 +51,7 @@ const fillCollection = db.collection('fill');
   }
 
   function removeItemByName(name) {
-    itemCollection.remove({name:name})
+    itemCollection.deleteMany({name:name})
   }
 
   module.exports = {
